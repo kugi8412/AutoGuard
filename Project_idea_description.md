@@ -59,7 +59,6 @@ An ecVQ-VAE will manage discrete peptide generation. A cross-attention fusion mo
 
 The project will follow a fully end-to-end pipeline beginning with curated peptide, proteome, and immunological datasets, followed by preprocessing, quality control, and feature extraction for each modality. Phylogenomic trees will be inferred and perturbed to produce evolutionary conditioning vectors, while the contrastive mimicry module will encode structural and functional similarity constraints against host proteins. These signals will be fused inside the ecVQ-VAE decoder, which will generate candidate peptides in a discrete latent space and then pass them through a unified validation stage that checks potency, novelty, evolutionary robustness, and safety. The final output of the system will therefore be a ranked list of AMP candidates with associated scores, traceable generation paths, and interpretable conditioning factors.
 
---
 
 ## References
 
