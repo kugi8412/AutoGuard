@@ -65,5 +65,4 @@ The project will follow a fully end-to-end pipeline beginning with curated pepti
 
 [1] Szymczak, P., Możejko, M., Grzegorzek, T. et al. *Discovering highly potent antimicrobial peptides with deep generative model HydrAMP*. Nat Commun 14, 1453 (2023). https://doi.org/10.1038/s41467-023-36994-z
 
-[2] Maoz-Segal R, Andrade P. *Molecular Mimicry and Autoimmunity. Infection and Autoim-
-munity*, 2015 Feb 6:27–44. https://pmc.ncbi.nlm.nih.gov/articles/PMC7151819/
+[2] Maoz-Segal R, Andrade P. *Molecular Mimicry and Autoimmunity. Infection and Autoimmunity*, 2015 Feb 6:27–44. https://pmc.ncbi.nlm.nih.gov/articles/PMC7151819/
