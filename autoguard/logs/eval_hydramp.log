@@ -1,0 +1,7 @@
+2026-06-16 11:01:48,525 - INFO - Generating 100 sequences from hydramp (autoguard/checkpoints/exp/hydramp/hydramp.pt)...
+/home/jakub/miniconda3/envs/autoguard/lib/python3.11/site-packages/torch/nn/modules/conv.py:380: UserWarning: Using padding='same' with even kernel lengths and odd dilation may require a zero-padded copy of the input be created (Triggered internally at /pytorch/aten/src/ATen/native/Convolution.cpp:1090.)
+  return F.conv1d(
+2026-06-16 11:01:48,835 - INFO -   Generated 100 non-empty sequences
+2026-06-16 11:02:49,225 - INFO -   novelty=1.000 diversity=0.300 amp_hit=0.910 quality=0.522
+2026-06-16 11:02:49,225 - INFO -   [challenge] success_rate=0.860 MIC50=1.56 MIC90=28.33 valid=0.962 overlap_ref=0
+2026-06-16 11:02:49,225 - INFO - Saved: autoguard/results/exp/hydramp/generated.csv and autoguard/results/exp/hydramp/metrics.json

@@ -1,0 +1,37 @@
+# ===========================================================================
+# AutoGuard hyperparameter search space
+# ===========================================================================
+
+method: grid          # "grid" (all combinations) or "random"
+num_samples: 6        # number of trials when method == random
+seed: 42
+metric: challenge_valid_fraction
+maximize: true
+
+python: ".venv\\Scripts\\python.exe"   # use "python" inside a conda env / cluster
+data_dir: "autoguard/data/"
+device: "cpu"          # set "cuda" on a GPU node
+max_train: 512         # cap training sequences during the search (0 = full data)
+num_generate: 100      # sequences generated per trial for evaluation
+temperature: 0.8
+use_graph: false
+tree_filter: "timetree*"
+out_dir: "autoguard/results/search"
+
+base_model_config: "autoguard/workflow/config/model_params.yaml"
+
+stages: ["poincare", "full", "sae"]
+
+stage_defaults:
+  poincare: { epochs: 50 }
+  full:     { epochs: 10, batch_size: 64, lr: 0.0003 }
+  sae:      { epochs: 20 }
+
+# Search space
+search_space:
+  full.lr: [0.0003, 0.0005]
+  full.batch_size: [64, 128]
+  model.num_codebook_vectors: [128, 256]
+  loss_weights.mimicry_penalty: [0.1, 0.2]
+  # model.sae_top_k: [16, 32]
+  # poincare.epochs: [50, 100]

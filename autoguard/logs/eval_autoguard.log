@@ -1,0 +1,5 @@
+2026-06-16 11:29:42,284 - INFO - Generating 100 sequences from autoguard (autoguard/checkpoints/exp/autoguard/best_model.pt)...
+2026-06-16 11:29:44,758 - INFO -   Generated 82 non-empty sequences
+2026-06-16 11:30:21,419 - INFO -   novelty=1.000 diversity=0.880 amp_hit=1.000 quality=0.632
+2026-06-16 11:30:21,419 - INFO -   [challenge] success_rate=0.244 MIC50=20.87 MIC90=30.06 valid=0.317 overlap_ref=0
+2026-06-16 11:30:21,419 - INFO - Saved: autoguard/results/exp/autoguard/generated.csv and autoguard/results/exp/autoguard/metrics.json

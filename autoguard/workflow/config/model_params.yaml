@@ -1,0 +1,88 @@
+# ===========================================================================
+# AutoGuard model parameters — FULL control of config.py from the workflow
+# ===========================================================================
+
+model:
+  # Sequence
+  # vocab_size: 21
+  # max_seq_len: 25
+  # pad_idx: 0
+
+  # HydrAMP base encoder
+  # embedding_dim: 64
+  # gru_hidden_dim: 96
+  latent_dim: 48            # shared conditioning width (must equal codebook_dim & film/phylo dims)
+
+  # VQ-VAE codebook
+  num_codebook_vectors: 1024
+  codebook_dim: 48          # must equal latent_dim
+  commitment_cost: 0.25
+  ema_decay: 0.99
+
+  # Graph encoder (GG-FiLM)
+  # node_feature_dim: 36     # 8 physicochemical + 20 one-hot AA + 8 positional (do not change)
+  # edge_feature_dim: 16
+  # graph_hidden_dim: 64
+  # graph_num_layers: 2
+  # film_hidden_dim: 48     # must equal latent_dim
+
+  # Phylogenetic (Poincaré)
+  # phylo_embed_dim: 10     # >=5 needed for low tree-distortion (2D cannot embed the tree)
+  # phylo_cond_dim: 48      # must equal latent_dim
+  # hyperbolic_curvature: -1.0
+  # num_perturbations: 4
+
+  # MIC conditioning
+  # mic_cond_dim: 16
+
+  # Mimicry / ESM cross-attention
+  # esm_embed_dim: 1280
+  # mimicry_hidden_dim: 128
+  # mimicry_margin: 0.5
+  # temperature: 0.07
+
+  # Safety module
+  # safety_hidden_dim: 64
+  toxicity_threshold: 0.3
+  hemolysis_threshold: 0.2
+
+  # Multimodal fusion
+  # fusion_heads: 4
+  # fusion_dim: 96
+  # fusion_layers: 1
+  # dropout: 0.1
+
+  # Decoder
+  # decoder_embed_dim: 64
+  # decoder_gru_dim: 128
+
+  # Sparse Autoencoder (Stage 5 / XAI)
+  sae_hidden_dim: 256
+  sae_sparsity_lambda: 0.001
+  sae_top_k: 16
+
+  # Training defaults
+  # batch_size: 64
+  # learning_rate: 0.0003
+  # weight_decay: 0.00001
+  # num_epochs: 200
+  # teacher_forcing_ratio: 0.5
+
+loss_weights:
+  reconstruction: 1.0
+  vq_commitment: 0.25
+  kl_divergence: 0.0
+  antimicrobial_activity: 0.5
+  phylo_conditioning: 0.15
+  mimicry_penalty: 0.2
+  safety_penalty: 0.15
+  sparsity: 0.05
+
+data:
+  # mic_threshold: 1.0        # ug/mL; MIC <= threshold = active
+  # min_seq_len: 5
+  # max_seq_len: 25
+  # train_ratio: 0.8
+  # val_ratio: 0.1
+  # test_ratio: 0.1
+  tree_filter: "timetree*"

@@ -1,0 +1,381 @@
+2026-06-16 10:24:46,439 - __main__ - INFO -   Global seed set to 42
+2026-06-16 10:24:46,440 - __main__ - INFO - AutoGuard Training | Stage: full | Device: cuda
+2026-06-16 10:24:46,440 - __main__ - INFO - ============================================================
+2026-06-16 10:24:46,440 - __main__ - INFO - STAGE 4: Full Multi-task Training
+2026-06-16 10:24:46,440 - __main__ - INFO - ============================================================
+2026-06-16 10:24:46,473 - __main__ - INFO -   Loaded from processed CSVs: train=51756, val=6347
+2026-06-16 10:24:46,473 - __main__ - INFO -   Species-labeled samples: 3990/51756 (7.7%)
+2026-06-16 10:24:46,495 - __main__ - INFO -   Phylo: 3 trees, 87 species embeddings (dim=10)
+2026-06-16 10:24:46,495 - __main__ - INFO -   Mimicry: +32 / -5000
+2026-06-16 10:24:46,500 - __main__ - INFO -   Loss weights: mimicry=0.2, safety=0.15
+2026-06-16 10:24:46,521 - __main__ - INFO -   Model: 1,391,692 params (1,391,692 trainable), graph_encoder=ON
+2026-06-16 10:24:46,533 - __main__ - INFO -   Building ESM cache for 58103 unique sequences on cuda...
+2026-06-16 10:24:50,970 - __main__ - INFO -     ESM cache 320/58103 (72.1 seq/s, ETA 13.4 min)
+2026-06-16 10:24:51,640 - __main__ - INFO -     ESM cache 640/58103 (125.3 seq/s, ETA 7.6 min)
+2026-06-16 10:24:52,306 - __main__ - INFO -     ESM cache 960/58103 (166.3 seq/s, ETA 5.7 min)
+2026-06-16 10:24:52,976 - __main__ - INFO -     ESM cache 1280/58103 (198.7 seq/s, ETA 4.8 min)
+2026-06-16 10:24:53,622 - __main__ - INFO -     ESM cache 1600/58103 (225.7 seq/s, ETA 4.2 min)
+2026-06-16 10:24:54,294 - __main__ - INFO -     ESM cache 1920/58103 (247.4 seq/s, ETA 3.8 min)
+2026-06-16 10:24:54,965 - __main__ - INFO -     ESM cache 2240/58103 (265.6 seq/s, ETA 3.5 min)
+2026-06-16 10:24:55,637 - __main__ - INFO -     ESM cache 2560/58103 (281.2 seq/s, ETA 3.3 min)
+2026-06-16 10:24:56,309 - __main__ - INFO -     ESM cache 2880/58103 (294.6 seq/s, ETA 3.1 min)
+2026-06-16 10:24:56,987 - __main__ - INFO -     ESM cache 3200/58103 (306.1 seq/s, ETA 3.0 min)
+2026-06-16 10:24:57,658 - __main__ - INFO -     ESM cache 3520/58103 (316.4 seq/s, ETA 2.9 min)
+2026-06-16 10:24:58,330 - __main__ - INFO -     ESM cache 3840/58103 (325.5 seq/s, ETA 2.8 min)
+2026-06-16 10:24:58,999 - __main__ - INFO -     ESM cache 4160/58103 (333.7 seq/s, ETA 2.7 min)
+2026-06-16 10:24:59,675 - __main__ - INFO -     ESM cache 4480/58103 (340.9 seq/s, ETA 2.6 min)
+2026-06-16 10:25:00,336 - __main__ - INFO -     ESM cache 4800/58103 (347.7 seq/s, ETA 2.6 min)
+2026-06-16 10:25:01,014 - __main__ - INFO -     ESM cache 5120/58103 (353.6 seq/s, ETA 2.5 min)
+2026-06-16 10:25:01,691 - __main__ - INFO -     ESM cache 5440/58103 (358.9 seq/s, ETA 2.4 min)
+2026-06-16 10:25:02,367 - __main__ - INFO -     ESM cache 5760/58103 (363.8 seq/s, ETA 2.4 min)
+2026-06-16 10:25:03,046 - __main__ - INFO -     ESM cache 6080/58103 (368.2 seq/s, ETA 2.4 min)
+2026-06-16 10:25:03,721 - __main__ - INFO -     ESM cache 6400/58103 (372.3 seq/s, ETA 2.3 min)
+2026-06-16 10:25:04,394 - __main__ - INFO -     ESM cache 6720/58103 (376.2 seq/s, ETA 2.3 min)
+2026-06-16 10:25:05,065 - __main__ - INFO -     ESM cache 7040/58103 (379.9 seq/s, ETA 2.2 min)
+2026-06-16 10:25:05,739 - __main__ - INFO -     ESM cache 7360/58103 (383.2 seq/s, ETA 2.2 min)
+2026-06-16 10:25:06,407 - __main__ - INFO -     ESM cache 7680/58103 (386.4 seq/s, ETA 2.2 min)
+2026-06-16 10:25:07,079 - __main__ - INFO -     ESM cache 8000/58103 (389.4 seq/s, ETA 2.1 min)
+2026-06-16 10:25:07,749 - __main__ - INFO -     ESM cache 8320/58103 (392.2 seq/s, ETA 2.1 min)
+2026-06-16 10:25:08,420 - __main__ - INFO -     ESM cache 8640/58103 (394.8 seq/s, ETA 2.1 min)
+2026-06-16 10:25:09,081 - __main__ - INFO -     ESM cache 8960/58103 (397.4 seq/s, ETA 2.1 min)
+2026-06-16 10:25:09,756 - __main__ - INFO -     ESM cache 9280/58103 (399.6 seq/s, ETA 2.0 min)
+2026-06-16 10:25:10,425 - __main__ - INFO -     ESM cache 9600/58103 (401.8 seq/s, ETA 2.0 min)
+2026-06-16 10:25:11,098 - __main__ - INFO -     ESM cache 9920/58103 (403.8 seq/s, ETA 2.0 min)
+2026-06-16 10:25:11,772 - __main__ - INFO -     ESM cache 10240/58103 (405.7 seq/s, ETA 2.0 min)
+2026-06-16 10:25:12,438 - __main__ - INFO -     ESM cache 10560/58103 (407.7 seq/s, ETA 1.9 min)
+2026-06-16 10:25:13,096 - __main__ - INFO -     ESM cache 10880/58103 (409.6 seq/s, ETA 1.9 min)
+2026-06-16 10:25:13,764 - __main__ - INFO -     ESM cache 11200/58103 (411.3 seq/s, ETA 1.9 min)
+2026-06-16 10:25:14,441 - __main__ - INFO -     ESM cache 11520/58103 (412.8 seq/s, ETA 1.9 min)
+2026-06-16 10:25:15,116 - __main__ - INFO -     ESM cache 11840/58103 (414.2 seq/s, ETA 1.9 min)
+2026-06-16 10:25:15,772 - __main__ - INFO -     ESM cache 12160/58103 (415.9 seq/s, ETA 1.8 min)
+2026-06-16 10:25:16,451 - __main__ - INFO -     ESM cache 12480/58103 (417.1 seq/s, ETA 1.8 min)
+2026-06-16 10:25:17,124 - __main__ - INFO -     ESM cache 12800/58103 (418.4 seq/s, ETA 1.8 min)
+2026-06-16 10:25:17,797 - __main__ - INFO -     ESM cache 13120/58103 (419.6 seq/s, ETA 1.8 min)
+2026-06-16 10:25:18,466 - __main__ - INFO -     ESM cache 13440/58103 (420.9 seq/s, ETA 1.8 min)
+2026-06-16 10:25:19,138 - __main__ - INFO -     ESM cache 13760/58103 (422.0 seq/s, ETA 1.8 min)
+2026-06-16 10:25:19,812 - __main__ - INFO -     ESM cache 14080/58103 (423.1 seq/s, ETA 1.7 min)
+2026-06-16 10:25:20,486 - __main__ - INFO -     ESM cache 14400/58103 (424.1 seq/s, ETA 1.7 min)
+2026-06-16 10:25:21,147 - __main__ - INFO -     ESM cache 14720/58103 (425.3 seq/s, ETA 1.7 min)
+2026-06-16 10:25:21,797 - __main__ - INFO -     ESM cache 15040/58103 (426.5 seq/s, ETA 1.7 min)
+2026-06-16 10:25:22,468 - __main__ - INFO -     ESM cache 15360/58103 (427.4 seq/s, ETA 1.7 min)
+2026-06-16 10:25:23,137 - __main__ - INFO -     ESM cache 15680/58103 (428.4 seq/s, ETA 1.7 min)
+2026-06-16 10:25:23,812 - __main__ - INFO -     ESM cache 16000/58103 (429.2 seq/s, ETA 1.6 min)
+2026-06-16 10:25:24,485 - __main__ - INFO -     ESM cache 16320/58103 (430.0 seq/s, ETA 1.6 min)
+2026-06-16 10:25:25,151 - __main__ - INFO -     ESM cache 16640/58103 (430.9 seq/s, ETA 1.6 min)
+2026-06-16 10:25:25,826 - __main__ - INFO -     ESM cache 16960/58103 (431.6 seq/s, ETA 1.6 min)
+2026-06-16 10:25:26,493 - __main__ - INFO -     ESM cache 17280/58103 (432.4 seq/s, ETA 1.6 min)
+2026-06-16 10:25:27,168 - __main__ - INFO -     ESM cache 17600/58103 (433.1 seq/s, ETA 1.6 min)
+2026-06-16 10:25:27,840 - __main__ - INFO -     ESM cache 17920/58103 (433.8 seq/s, ETA 1.5 min)
+2026-06-16 10:25:28,515 - __main__ - INFO -     ESM cache 18240/58103 (434.5 seq/s, ETA 1.5 min)
+2026-06-16 10:25:29,195 - __main__ - INFO -     ESM cache 18560/58103 (435.0 seq/s, ETA 1.5 min)
+2026-06-16 10:25:29,872 - __main__ - INFO -     ESM cache 18880/58103 (435.6 seq/s, ETA 1.5 min)
+2026-06-16 10:25:30,508 - __main__ - INFO -     ESM cache 19200/58103 (436.6 seq/s, ETA 1.5 min)
+2026-06-16 10:25:31,179 - __main__ - INFO -     ESM cache 19520/58103 (437.2 seq/s, ETA 1.5 min)
+2026-06-16 10:25:31,853 - __main__ - INFO -     ESM cache 19840/58103 (437.8 seq/s, ETA 1.5 min)
+2026-06-16 10:25:32,524 - __main__ - INFO -     ESM cache 20160/58103 (438.3 seq/s, ETA 1.4 min)
+2026-06-16 10:25:33,193 - __main__ - INFO -     ESM cache 20480/58103 (438.9 seq/s, ETA 1.4 min)
+2026-06-16 10:25:33,786 - __main__ - INFO -     ESM cache 20800/58103 (440.2 seq/s, ETA 1.4 min)
+2026-06-16 10:25:34,378 - __main__ - INFO -     ESM cache 21120/58103 (441.4 seq/s, ETA 1.4 min)
+2026-06-16 10:25:35,040 - __main__ - INFO -     ESM cache 21440/58103 (442.0 seq/s, ETA 1.4 min)
+2026-06-16 10:25:35,719 - __main__ - INFO -     ESM cache 21760/58103 (442.4 seq/s, ETA 1.4 min)
+2026-06-16 10:25:36,392 - __main__ - INFO -     ESM cache 22080/58103 (442.8 seq/s, ETA 1.4 min)
+2026-06-16 10:25:37,067 - __main__ - INFO -     ESM cache 22400/58103 (443.3 seq/s, ETA 1.3 min)
+2026-06-16 10:25:37,745 - __main__ - INFO -     ESM cache 22720/58103 (443.6 seq/s, ETA 1.3 min)
+2026-06-16 10:25:38,421 - __main__ - INFO -     ESM cache 23040/58103 (444.0 seq/s, ETA 1.3 min)
+2026-06-16 10:25:39,099 - __main__ - INFO -     ESM cache 23360/58103 (444.4 seq/s, ETA 1.3 min)
+2026-06-16 10:25:39,774 - __main__ - INFO -     ESM cache 23680/58103 (444.8 seq/s, ETA 1.3 min)
+2026-06-16 10:25:40,392 - __main__ - INFO -     ESM cache 24000/58103 (445.6 seq/s, ETA 1.3 min)
+2026-06-16 10:25:41,065 - __main__ - INFO -     ESM cache 24320/58103 (446.0 seq/s, ETA 1.3 min)
+2026-06-16 10:25:41,728 - __main__ - INFO -     ESM cache 24640/58103 (446.4 seq/s, ETA 1.2 min)
+2026-06-16 10:25:42,410 - __main__ - INFO -     ESM cache 24960/58103 (446.7 seq/s, ETA 1.2 min)
+2026-06-16 10:25:43,072 - __main__ - INFO -     ESM cache 25280/58103 (447.1 seq/s, ETA 1.2 min)
+2026-06-16 10:25:43,728 - __main__ - INFO -     ESM cache 25600/58103 (447.6 seq/s, ETA 1.2 min)
+2026-06-16 10:25:44,384 - __main__ - INFO -     ESM cache 25920/58103 (448.0 seq/s, ETA 1.2 min)
+2026-06-16 10:25:45,043 - __main__ - INFO -     ESM cache 26240/58103 (448.5 seq/s, ETA 1.2 min)
+2026-06-16 10:25:45,688 - __main__ - INFO -     ESM cache 26560/58103 (449.0 seq/s, ETA 1.2 min)
+2026-06-16 10:25:46,332 - __main__ - INFO -     ESM cache 26880/58103 (449.5 seq/s, ETA 1.2 min)
+2026-06-16 10:25:46,981 - __main__ - INFO -     ESM cache 27200/58103 (450.0 seq/s, ETA 1.1 min)
+2026-06-16 10:25:47,636 - __main__ - INFO -     ESM cache 27520/58103 (450.4 seq/s, ETA 1.1 min)
+2026-06-16 10:25:48,288 - __main__ - INFO -     ESM cache 27840/58103 (450.8 seq/s, ETA 1.1 min)
+2026-06-16 10:25:48,948 - __main__ - INFO -     ESM cache 28160/58103 (451.2 seq/s, ETA 1.1 min)
+2026-06-16 10:25:49,605 - __main__ - INFO -     ESM cache 28480/58103 (451.5 seq/s, ETA 1.1 min)
+2026-06-16 10:25:50,257 - __main__ - INFO -     ESM cache 28800/58103 (451.9 seq/s, ETA 1.1 min)
+2026-06-16 10:25:50,889 - __main__ - INFO -     ESM cache 29120/58103 (452.5 seq/s, ETA 1.1 min)
+2026-06-16 10:25:51,542 - __main__ - INFO -     ESM cache 29440/58103 (452.9 seq/s, ETA 1.1 min)
+2026-06-16 10:25:52,204 - __main__ - INFO -     ESM cache 29760/58103 (453.2 seq/s, ETA 1.0 min)
+2026-06-16 10:25:52,855 - __main__ - INFO -     ESM cache 30080/58103 (453.5 seq/s, ETA 1.0 min)
+2026-06-16 10:25:53,517 - __main__ - INFO -     ESM cache 30400/58103 (453.8 seq/s, ETA 1.0 min)
+2026-06-16 10:25:54,124 - __main__ - INFO -     ESM cache 30720/58103 (454.5 seq/s, ETA 1.0 min)
+2026-06-16 10:25:54,779 - __main__ - INFO -     ESM cache 31040/58103 (454.8 seq/s, ETA 1.0 min)
+2026-06-16 10:25:55,434 - __main__ - INFO -     ESM cache 31360/58103 (455.1 seq/s, ETA 1.0 min)
+2026-06-16 10:25:56,089 - __main__ - INFO -     ESM cache 31680/58103 (455.5 seq/s, ETA 1.0 min)
+2026-06-16 10:25:56,734 - __main__ - INFO -     ESM cache 32000/58103 (455.8 seq/s, ETA 1.0 min)
+2026-06-16 10:25:57,383 - __main__ - INFO -     ESM cache 32320/58103 (456.2 seq/s, ETA 0.9 min)
+2026-06-16 10:25:58,036 - __main__ - INFO -     ESM cache 32640/58103 (456.5 seq/s, ETA 0.9 min)
+2026-06-16 10:25:58,678 - __main__ - INFO -     ESM cache 32960/58103 (456.9 seq/s, ETA 0.9 min)
+2026-06-16 10:25:59,320 - __main__ - INFO -     ESM cache 33280/58103 (457.2 seq/s, ETA 0.9 min)
+2026-06-16 10:25:59,970 - __main__ - INFO -     ESM cache 33600/58103 (457.5 seq/s, ETA 0.9 min)
+2026-06-16 10:26:00,620 - __main__ - INFO -     ESM cache 33920/58103 (457.8 seq/s, ETA 0.9 min)
+2026-06-16 10:26:01,270 - __main__ - INFO -     ESM cache 34240/58103 (458.1 seq/s, ETA 0.9 min)
+2026-06-16 10:26:01,912 - __main__ - INFO -     ESM cache 34560/58103 (458.5 seq/s, ETA 0.9 min)
+2026-06-16 10:26:02,563 - __main__ - INFO -     ESM cache 34880/58103 (458.8 seq/s, ETA 0.8 min)
+2026-06-16 10:26:03,210 - __main__ - INFO -     ESM cache 35200/58103 (459.1 seq/s, ETA 0.8 min)
+2026-06-16 10:26:03,862 - __main__ - INFO -     ESM cache 35520/58103 (459.3 seq/s, ETA 0.8 min)
+2026-06-16 10:26:04,515 - __main__ - INFO -     ESM cache 35840/58103 (459.6 seq/s, ETA 0.8 min)
+2026-06-16 10:26:05,166 - __main__ - INFO -     ESM cache 36160/58103 (459.9 seq/s, ETA 0.8 min)
+2026-06-16 10:26:05,818 - __main__ - INFO -     ESM cache 36480/58103 (460.1 seq/s, ETA 0.8 min)
+2026-06-16 10:26:06,472 - __main__ - INFO -     ESM cache 36800/58103 (460.3 seq/s, ETA 0.8 min)
+2026-06-16 10:26:07,134 - __main__ - INFO -     ESM cache 37120/58103 (460.5 seq/s, ETA 0.8 min)
+2026-06-16 10:26:07,790 - __main__ - INFO -     ESM cache 37440/58103 (460.8 seq/s, ETA 0.7 min)
+2026-06-16 10:26:08,449 - __main__ - INFO -     ESM cache 37760/58103 (461.0 seq/s, ETA 0.7 min)
+2026-06-16 10:26:09,098 - __main__ - INFO -     ESM cache 38080/58103 (461.2 seq/s, ETA 0.7 min)
+2026-06-16 10:26:09,754 - __main__ - INFO -     ESM cache 38400/58103 (461.4 seq/s, ETA 0.7 min)
+2026-06-16 10:26:10,416 - __main__ - INFO -     ESM cache 38720/58103 (461.6 seq/s, ETA 0.7 min)
+2026-06-16 10:26:11,080 - __main__ - INFO -     ESM cache 39040/58103 (461.8 seq/s, ETA 0.7 min)
+2026-06-16 10:26:11,738 - __main__ - INFO -     ESM cache 39360/58103 (461.9 seq/s, ETA 0.7 min)
+2026-06-16 10:26:12,394 - __main__ - INFO -     ESM cache 39680/58103 (462.1 seq/s, ETA 0.7 min)
+2026-06-16 10:26:13,043 - __main__ - INFO -     ESM cache 40000/58103 (462.4 seq/s, ETA 0.7 min)
+2026-06-16 10:26:13,700 - __main__ - INFO -     ESM cache 40320/58103 (462.6 seq/s, ETA 0.6 min)
+2026-06-16 10:26:14,343 - __main__ - INFO -     ESM cache 40640/58103 (462.8 seq/s, ETA 0.6 min)
+2026-06-16 10:26:14,993 - __main__ - INFO -     ESM cache 40960/58103 (463.0 seq/s, ETA 0.6 min)
+2026-06-16 10:26:15,645 - __main__ - INFO -     ESM cache 41280/58103 (463.2 seq/s, ETA 0.6 min)
+2026-06-16 10:26:16,303 - __main__ - INFO -     ESM cache 41600/58103 (463.4 seq/s, ETA 0.6 min)
+2026-06-16 10:26:16,903 - __main__ - INFO -     ESM cache 41920/58103 (463.9 seq/s, ETA 0.6 min)
+2026-06-16 10:26:17,487 - __main__ - INFO -     ESM cache 42240/58103 (464.4 seq/s, ETA 0.6 min)
+2026-06-16 10:26:18,138 - __main__ - INFO -     ESM cache 42560/58103 (464.6 seq/s, ETA 0.6 min)
+2026-06-16 10:26:18,784 - __main__ - INFO -     ESM cache 42880/58103 (464.8 seq/s, ETA 0.5 min)
+2026-06-16 10:26:19,424 - __main__ - INFO -     ESM cache 43200/58103 (465.1 seq/s, ETA 0.5 min)
+2026-06-16 10:26:20,079 - __main__ - INFO -     ESM cache 43520/58103 (465.2 seq/s, ETA 0.5 min)
+2026-06-16 10:26:20,660 - __main__ - INFO -     ESM cache 43840/58103 (465.8 seq/s, ETA 0.5 min)
+2026-06-16 10:26:21,315 - __main__ - INFO -     ESM cache 44160/58103 (465.9 seq/s, ETA 0.5 min)
+2026-06-16 10:26:21,968 - __main__ - INFO -     ESM cache 44480/58103 (466.1 seq/s, ETA 0.5 min)
+2026-06-16 10:26:22,551 - __main__ - INFO -     ESM cache 44800/58103 (466.6 seq/s, ETA 0.5 min)
+2026-06-16 10:26:23,193 - __main__ - INFO -     ESM cache 45120/58103 (466.8 seq/s, ETA 0.5 min)
+2026-06-16 10:26:23,853 - __main__ - INFO -     ESM cache 45440/58103 (466.9 seq/s, ETA 0.5 min)
+2026-06-16 10:26:24,514 - __main__ - INFO -     ESM cache 45760/58103 (467.0 seq/s, ETA 0.4 min)
+2026-06-16 10:26:25,074 - __main__ - INFO -     ESM cache 46080/58103 (467.6 seq/s, ETA 0.4 min)
+2026-06-16 10:26:25,729 - __main__ - INFO -     ESM cache 46400/58103 (467.8 seq/s, ETA 0.4 min)
+2026-06-16 10:26:26,390 - __main__ - INFO -     ESM cache 46720/58103 (467.9 seq/s, ETA 0.4 min)
+2026-06-16 10:26:27,054 - __main__ - INFO -     ESM cache 47040/58103 (468.0 seq/s, ETA 0.4 min)
+2026-06-16 10:26:27,700 - __main__ - INFO -     ESM cache 47360/58103 (468.1 seq/s, ETA 0.4 min)
+2026-06-16 10:26:28,301 - __main__ - INFO -     ESM cache 47680/58103 (468.5 seq/s, ETA 0.4 min)
+2026-06-16 10:26:28,951 - __main__ - INFO -     ESM cache 48000/58103 (468.7 seq/s, ETA 0.4 min)
+2026-06-16 10:26:29,607 - __main__ - INFO -     ESM cache 48320/58103 (468.8 seq/s, ETA 0.3 min)
+2026-06-16 10:26:30,269 - __main__ - INFO -     ESM cache 48640/58103 (468.9 seq/s, ETA 0.3 min)
+2026-06-16 10:26:30,926 - __main__ - INFO -     ESM cache 48960/58103 (469.0 seq/s, ETA 0.3 min)
+2026-06-16 10:26:31,580 - __main__ - INFO -     ESM cache 49280/58103 (469.1 seq/s, ETA 0.3 min)
+2026-06-16 10:26:32,235 - __main__ - INFO -     ESM cache 49600/58103 (469.2 seq/s, ETA 0.3 min)
+2026-06-16 10:26:32,894 - __main__ - INFO -     ESM cache 49920/58103 (469.3 seq/s, ETA 0.3 min)
+2026-06-16 10:26:33,555 - __main__ - INFO -     ESM cache 50240/58103 (469.4 seq/s, ETA 0.3 min)
+2026-06-16 10:26:34,213 - __main__ - INFO -     ESM cache 50560/58103 (469.5 seq/s, ETA 0.3 min)
+2026-06-16 10:26:34,872 - __main__ - INFO -     ESM cache 50880/58103 (469.6 seq/s, ETA 0.3 min)
+2026-06-16 10:26:35,527 - __main__ - INFO -     ESM cache 51200/58103 (469.8 seq/s, ETA 0.2 min)
+2026-06-16 10:26:36,189 - __main__ - INFO -     ESM cache 51520/58103 (469.8 seq/s, ETA 0.2 min)
+2026-06-16 10:26:36,838 - __main__ - INFO -     ESM cache 51840/58103 (470.0 seq/s, ETA 0.2 min)
+2026-06-16 10:26:37,497 - __main__ - INFO -     ESM cache 52160/58103 (470.1 seq/s, ETA 0.2 min)
+2026-06-16 10:26:38,144 - __main__ - INFO -     ESM cache 52480/58103 (470.2 seq/s, ETA 0.2 min)
+2026-06-16 10:26:38,802 - __main__ - INFO -     ESM cache 52800/58103 (470.3 seq/s, ETA 0.2 min)
+2026-06-16 10:26:39,454 - __main__ - INFO -     ESM cache 53120/58103 (470.4 seq/s, ETA 0.2 min)
+2026-06-16 10:26:40,091 - __main__ - INFO -     ESM cache 53440/58103 (470.6 seq/s, ETA 0.2 min)
+2026-06-16 10:26:40,733 - __main__ - INFO -     ESM cache 53760/58103 (470.8 seq/s, ETA 0.2 min)
+2026-06-16 10:26:41,390 - __main__ - INFO -     ESM cache 54080/58103 (470.8 seq/s, ETA 0.1 min)
+2026-06-16 10:26:41,965 - __main__ - INFO -     ESM cache 54400/58103 (471.3 seq/s, ETA 0.1 min)
+2026-06-16 10:26:42,610 - __main__ - INFO -     ESM cache 54720/58103 (471.4 seq/s, ETA 0.1 min)
+2026-06-16 10:26:43,266 - __main__ - INFO -     ESM cache 55040/58103 (471.5 seq/s, ETA 0.1 min)
+2026-06-16 10:26:43,925 - __main__ - INFO -     ESM cache 55360/58103 (471.6 seq/s, ETA 0.1 min)
+2026-06-16 10:26:44,574 - __main__ - INFO -     ESM cache 55680/58103 (471.7 seq/s, ETA 0.1 min)
+2026-06-16 10:26:45,222 - __main__ - INFO -     ESM cache 56000/58103 (471.8 seq/s, ETA 0.1 min)
+2026-06-16 10:26:45,867 - __main__ - INFO -     ESM cache 56320/58103 (472.0 seq/s, ETA 0.1 min)
+2026-06-16 10:26:46,591 - __main__ - INFO -     ESM cache 56640/58103 (471.8 seq/s, ETA 0.1 min)
+2026-06-16 10:26:47,248 - __main__ - INFO -     ESM cache 56960/58103 (471.9 seq/s, ETA 0.0 min)
+2026-06-16 10:26:47,890 - __main__ - INFO -     ESM cache 57280/58103 (472.0 seq/s, ETA 0.0 min)
+2026-06-16 10:26:48,788 - __main__ - INFO -     ESM cache 57600/58103 (471.1 seq/s, ETA 0.0 min)
+2026-06-16 10:26:49,862 - __main__ - INFO -     ESM cache 57920/58103 (469.6 seq/s, ETA 0.0 min)
+2026-06-16 10:26:50,469 - __main__ - INFO -     ESM cache 58103/58103 (468.8 seq/s, ETA 0.0 min)
+2026-06-16 10:26:51,209 - __main__ - INFO -   Saved ESM cache: autoguard/data/embeddings/esm_cache.pt (took 2.1 min)
+2026-06-16 10:26:51,210 - __main__ - INFO -   ESM cache: 58103 sequences
+/home/jakub/miniconda3/envs/autoguard/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+2026-06-16 10:27:17,192 - autoguard.training.trainer - INFO - Epoch 1/180 | Train Loss: 2.8806 | Val Loss: 2.4856 | VQ Perplexity: 172.7 | Codebook: 952/1024 alive
+2026-06-16 10:27:42,464 - autoguard.training.trainer - INFO - Epoch 2/180 | Train Loss: 2.2493 | Val Loss: 2.0585 | VQ Perplexity: 279.2 | Codebook: 980/1024 alive
+2026-06-16 10:28:07,750 - autoguard.training.trainer - INFO - Epoch 3/180 | Train Loss: 1.8636 | Val Loss: 1.7175 | VQ Perplexity: 256.9 | Codebook: 991/1024 alive
+2026-06-16 10:28:33,239 - autoguard.training.trainer - INFO - Epoch 4/180 | Train Loss: 1.5550 | Val Loss: 1.4312 | VQ Perplexity: 198.1 | Codebook: 998/1024 alive
+2026-06-16 10:28:58,680 - autoguard.training.trainer - INFO - Epoch 5/180 | Train Loss: 1.3142 | Val Loss: 1.2137 | VQ Perplexity: 176.2 | Codebook: 1004/1024 alive
+2026-06-16 10:29:24,013 - autoguard.training.trainer - INFO - Epoch 6/180 | Train Loss: 1.1530 | Val Loss: 1.1021 | VQ Perplexity: 200.4 | Codebook: 1015/1024 alive
+2026-06-16 10:29:49,755 - autoguard.training.trainer - INFO - Epoch 7/180 | Train Loss: 1.0708 | Val Loss: 1.0552 | VQ Perplexity: 236.3 | Codebook: 1022/1024 alive
+2026-06-16 10:30:15,301 - autoguard.training.trainer - INFO - Epoch 8/180 | Train Loss: 1.0351 | Val Loss: 1.0026 | VQ Perplexity: 270.2 | Codebook: 1021/1024 alive
+2026-06-16 10:30:40,611 - autoguard.training.trainer - INFO - Epoch 9/180 | Train Loss: 1.0091 | Val Loss: 1.0133 | VQ Perplexity: 296.9 | Codebook: 1023/1024 alive
+2026-06-16 10:31:07,611 - autoguard.training.trainer - INFO - Epoch 10/180 | Train Loss: 0.9928 | Val Loss: 1.0041 | VQ Perplexity: 321.2 | Codebook: 1023/1024 alive
+2026-06-16 10:31:32,999 - autoguard.training.trainer - INFO - Epoch 11/180 | Train Loss: 0.9749 | Val Loss: 0.9729 | VQ Perplexity: 349.6 | Codebook: 1024/1024 alive
+2026-06-16 10:31:58,302 - autoguard.training.trainer - INFO - Epoch 12/180 | Train Loss: 0.9521 | Val Loss: 0.9403 | VQ Perplexity: 374.0 | Codebook: 1023/1024 alive
+2026-06-16 10:32:24,479 - autoguard.training.trainer - INFO - Epoch 13/180 | Train Loss: 0.9226 | Val Loss: 0.9305 | VQ Perplexity: 385.5 | Codebook: 1022/1024 alive
+2026-06-16 10:32:49,913 - autoguard.training.trainer - INFO - Epoch 14/180 | Train Loss: 0.8888 | Val Loss: 0.8760 | VQ Perplexity: 413.3 | Codebook: 1024/1024 alive
+2026-06-16 10:33:15,188 - autoguard.training.trainer - INFO - Epoch 15/180 | Train Loss: 0.8484 | Val Loss: 0.8323 | VQ Perplexity: 422.5 | Codebook: 1024/1024 alive
+2026-06-16 10:33:40,420 - autoguard.training.trainer - INFO - Epoch 16/180 | Train Loss: 0.7992 | Val Loss: 0.7864 | VQ Perplexity: 432.4 | Codebook: 1023/1024 alive
+2026-06-16 10:34:05,309 - autoguard.training.trainer - INFO - Epoch 17/180 | Train Loss: 0.7423 | Val Loss: 0.7091 | VQ Perplexity: 429.3 | Codebook: 1024/1024 alive
+2026-06-16 10:34:29,385 - autoguard.training.trainer - INFO - Epoch 18/180 | Train Loss: 0.6672 | Val Loss: 0.6415 | VQ Perplexity: 441.0 | Codebook: 1024/1024 alive
+2026-06-16 10:34:54,064 - autoguard.training.trainer - INFO - Epoch 19/180 | Train Loss: 0.5816 | Val Loss: 0.5494 | VQ Perplexity: 441.8 | Codebook: 1024/1024 alive
+2026-06-16 10:35:18,789 - autoguard.training.trainer - INFO - Epoch 20/180 | Train Loss: 0.4903 | Val Loss: 0.4602 | VQ Perplexity: 448.7 | Codebook: 1022/1024 alive
+2026-06-16 10:35:43,288 - autoguard.training.trainer - INFO - Epoch 21/180 | Train Loss: 0.4196 | Val Loss: 0.4189 | VQ Perplexity: 452.7 | Codebook: 1023/1024 alive
+2026-06-16 10:36:08,157 - autoguard.training.trainer - INFO - Epoch 22/180 | Train Loss: 0.3530 | Val Loss: 0.3294 | VQ Perplexity: 470.3 | Codebook: 1023/1024 alive
+2026-06-16 10:36:33,464 - autoguard.training.trainer - INFO - Epoch 23/180 | Train Loss: 0.3017 | Val Loss: 0.2890 | VQ Perplexity: 473.0 | Codebook: 1023/1024 alive
+2026-06-16 10:36:58,924 - autoguard.training.trainer - INFO - Epoch 24/180 | Train Loss: 0.2769 | Val Loss: 0.2705 | VQ Perplexity: 454.5 | Codebook: 1022/1024 alive
+2026-06-16 10:37:24,256 - autoguard.training.trainer - INFO - Epoch 25/180 | Train Loss: 0.2518 | Val Loss: 0.2571 | VQ Perplexity: 458.7 | Codebook: 1021/1024 alive
+2026-06-16 10:37:49,611 - autoguard.training.trainer - INFO - Epoch 26/180 | Train Loss: 0.2363 | Val Loss: 0.2537 | VQ Perplexity: 480.9 | Codebook: 1020/1024 alive
+2026-06-16 10:38:15,124 - autoguard.training.trainer - INFO - Epoch 27/180 | Train Loss: 0.2251 | Val Loss: 0.2363 | VQ Perplexity: 482.6 | Codebook: 1022/1024 alive
+2026-06-16 10:38:40,561 - autoguard.training.trainer - INFO - Epoch 28/180 | Train Loss: 0.2223 | Val Loss: 0.2787 | VQ Perplexity: 489.0 | Codebook: 1019/1024 alive
+2026-06-16 10:39:05,813 - autoguard.training.trainer - INFO - Epoch 29/180 | Train Loss: 0.2059 | Val Loss: 0.2324 | VQ Perplexity: 536.3 | Codebook: 1023/1024 alive
+2026-06-16 10:39:31,137 - autoguard.training.trainer - INFO - Epoch 30/180 | Train Loss: 0.1929 | Val Loss: 0.2080 | VQ Perplexity: 539.8 | Codebook: 1024/1024 alive
+2026-06-16 10:39:56,611 - autoguard.training.trainer - INFO - Epoch 31/180 | Train Loss: 0.1887 | Val Loss: 0.2146 | VQ Perplexity: 549.1 | Codebook: 1023/1024 alive
+2026-06-16 10:40:21,712 - autoguard.training.trainer - INFO - Epoch 32/180 | Train Loss: 0.1788 | Val Loss: 0.1973 | VQ Perplexity: 564.8 | Codebook: 1022/1024 alive
+2026-06-16 10:40:46,132 - autoguard.training.trainer - INFO - Epoch 33/180 | Train Loss: 0.1716 | Val Loss: 0.2061 | VQ Perplexity: 562.2 | Codebook: 1024/1024 alive
+2026-06-16 10:41:10,724 - autoguard.training.trainer - INFO - Epoch 34/180 | Train Loss: 0.1678 | Val Loss: 0.2007 | VQ Perplexity: 563.2 | Codebook: 1024/1024 alive
+2026-06-16 10:41:34,807 - autoguard.training.trainer - INFO - Epoch 35/180 | Train Loss: 0.1623 | Val Loss: 0.1815 | VQ Perplexity: 559.3 | Codebook: 1024/1024 alive
+2026-06-16 10:41:59,363 - autoguard.training.trainer - INFO - Epoch 36/180 | Train Loss: 0.1576 | Val Loss: 0.1905 | VQ Perplexity: 563.6 | Codebook: 1024/1024 alive
+2026-06-16 10:42:24,101 - autoguard.training.trainer - INFO - Epoch 37/180 | Train Loss: 0.1549 | Val Loss: 0.2005 | VQ Perplexity: 555.9 | Codebook: 1024/1024 alive
+2026-06-16 10:42:48,494 - autoguard.training.trainer - INFO - Epoch 38/180 | Train Loss: 0.1517 | Val Loss: 0.2012 | VQ Perplexity: 563.6 | Codebook: 1024/1024 alive
+2026-06-16 10:43:13,112 - autoguard.training.trainer - INFO - Epoch 39/180 | Train Loss: 0.1471 | Val Loss: 0.1957 | VQ Perplexity: 567.9 | Codebook: 1024/1024 alive
+2026-06-16 10:43:37,720 - autoguard.training.trainer - INFO - Epoch 40/180 | Train Loss: 0.1470 | Val Loss: 0.1955 | VQ Perplexity: 565.8 | Codebook: 1023/1024 alive
+2026-06-16 10:44:02,198 - autoguard.training.trainer - INFO - Epoch 41/180 | Train Loss: 0.1432 | Val Loss: 0.1929 | VQ Perplexity: 549.0 | Codebook: 1024/1024 alive
+2026-06-16 10:44:26,531 - autoguard.training.trainer - INFO - Epoch 42/180 | Train Loss: 0.1425 | Val Loss: 0.1867 | VQ Perplexity: 563.2 | Codebook: 1024/1024 alive
+2026-06-16 10:44:51,029 - autoguard.training.trainer - INFO - Epoch 43/180 | Train Loss: 0.1396 | Val Loss: 0.1871 | VQ Perplexity: 560.0 | Codebook: 1024/1024 alive
+2026-06-16 10:45:15,951 - autoguard.training.trainer - INFO - Epoch 44/180 | Train Loss: 0.1326 | Val Loss: 0.1989 | VQ Perplexity: 579.2 | Codebook: 1024/1024 alive
+2026-06-16 10:45:40,511 - autoguard.training.trainer - INFO - Epoch 45/180 | Train Loss: 0.1363 | Val Loss: 0.1936 | VQ Perplexity: 582.1 | Codebook: 1024/1024 alive
+2026-06-16 10:46:04,989 - autoguard.training.trainer - INFO - Epoch 46/180 | Train Loss: 0.1328 | Val Loss: 0.1878 | VQ Perplexity: 579.1 | Codebook: 1024/1024 alive
+2026-06-16 10:46:29,610 - autoguard.training.trainer - INFO - Epoch 47/180 | Train Loss: 0.1289 | Val Loss: 0.1813 | VQ Perplexity: 575.8 | Codebook: 1024/1024 alive
+2026-06-16 10:46:54,233 - autoguard.training.trainer - INFO - Epoch 48/180 | Train Loss: 0.1266 | Val Loss: 0.2052 | VQ Perplexity: 584.3 | Codebook: 1024/1024 alive
+2026-06-16 10:47:18,663 - autoguard.training.trainer - INFO - Epoch 49/180 | Train Loss: 0.1253 | Val Loss: 0.1899 | VQ Perplexity: 573.2 | Codebook: 1024/1024 alive
+2026-06-16 10:47:43,135 - autoguard.training.trainer - INFO - Epoch 50/180 | Train Loss: 0.1267 | Val Loss: 0.1916 | VQ Perplexity: 587.8 | Codebook: 1024/1024 alive
+2026-06-16 10:48:08,102 - autoguard.training.trainer - INFO - Epoch 51/180 | Train Loss: 0.1222 | Val Loss: 0.2025 | VQ Perplexity: 589.7 | Codebook: 1024/1024 alive
+2026-06-16 10:48:32,653 - autoguard.training.trainer - INFO - Epoch 52/180 | Train Loss: 0.1194 | Val Loss: 0.1997 | VQ Perplexity: 591.0 | Codebook: 1024/1024 alive
+2026-06-16 10:48:56,884 - autoguard.training.trainer - INFO - Epoch 53/180 | Train Loss: 0.1198 | Val Loss: 0.1897 | VQ Perplexity: 575.1 | Codebook: 1024/1024 alive
+2026-06-16 10:49:21,787 - autoguard.training.trainer - INFO - Epoch 54/180 | Train Loss: 0.1170 | Val Loss: 0.1986 | VQ Perplexity: 587.7 | Codebook: 1024/1024 alive
+2026-06-16 10:49:46,730 - autoguard.training.trainer - INFO - Epoch 55/180 | Train Loss: 0.1162 | Val Loss: 0.2007 | VQ Perplexity: 589.0 | Codebook: 1024/1024 alive
+2026-06-16 10:50:11,096 - autoguard.training.trainer - INFO - Epoch 56/180 | Train Loss: 0.1172 | Val Loss: 0.2012 | VQ Perplexity: 591.0 | Codebook: 1024/1024 alive
+2026-06-16 10:50:35,711 - autoguard.training.trainer - INFO - Epoch 57/180 | Train Loss: 0.1146 | Val Loss: 0.1964 | VQ Perplexity: 594.9 | Codebook: 1024/1024 alive
+2026-06-16 10:51:00,645 - autoguard.training.trainer - INFO - Epoch 58/180 | Train Loss: 0.1120 | Val Loss: 0.2027 | VQ Perplexity: 593.3 | Codebook: 1024/1024 alive
+2026-06-16 10:51:25,522 - autoguard.training.trainer - INFO - Epoch 59/180 | Train Loss: 0.1126 | Val Loss: 0.2288 | VQ Perplexity: 598.3 | Codebook: 1024/1024 alive
+2026-06-16 10:51:49,843 - autoguard.training.trainer - INFO - Epoch 60/180 | Train Loss: 0.1114 | Val Loss: 0.2060 | VQ Perplexity: 603.9 | Codebook: 1024/1024 alive
+2026-06-16 10:52:14,398 - autoguard.training.trainer - INFO - Epoch 61/180 | Train Loss: 0.1110 | Val Loss: 0.2166 | VQ Perplexity: 603.4 | Codebook: 1023/1024 alive
+2026-06-16 10:52:39,916 - autoguard.training.trainer - INFO - Epoch 62/180 | Train Loss: 0.1067 | Val Loss: 0.2112 | VQ Perplexity: 605.2 | Codebook: 1024/1024 alive
+2026-06-16 10:53:04,440 - autoguard.training.trainer - INFO - Epoch 63/180 | Train Loss: 0.1071 | Val Loss: 0.2153 | VQ Perplexity: 607.8 | Codebook: 1024/1024 alive
+2026-06-16 10:53:29,241 - autoguard.training.trainer - INFO - Epoch 64/180 | Train Loss: 0.1068 | Val Loss: 0.2015 | VQ Perplexity: 602.9 | Codebook: 1024/1024 alive
+2026-06-16 10:53:53,924 - autoguard.training.trainer - INFO - Epoch 65/180 | Train Loss: 0.1076 | Val Loss: 0.2078 | VQ Perplexity: 618.6 | Codebook: 1024/1024 alive
+2026-06-16 10:54:18,543 - autoguard.training.trainer - INFO - Epoch 66/180 | Train Loss: 0.1037 | Val Loss: 0.2187 | VQ Perplexity: 616.5 | Codebook: 1024/1024 alive
+2026-06-16 10:54:43,025 - autoguard.training.trainer - INFO - Epoch 67/180 | Train Loss: 0.1028 | Val Loss: 0.2297 | VQ Perplexity: 617.5 | Codebook: 1024/1024 alive
+2026-06-16 10:55:07,521 - autoguard.training.trainer - INFO - Epoch 68/180 | Train Loss: 0.1040 | Val Loss: 0.2202 | VQ Perplexity: 603.8 | Codebook: 1024/1024 alive
+2026-06-16 10:55:32,480 - autoguard.training.trainer - INFO - Epoch 69/180 | Train Loss: 0.0995 | Val Loss: 0.2280 | VQ Perplexity: 624.9 | Codebook: 1024/1024 alive
+2026-06-16 10:55:57,750 - autoguard.training.trainer - INFO - Epoch 70/180 | Train Loss: 0.1001 | Val Loss: 0.2261 | VQ Perplexity: 625.8 | Codebook: 1024/1024 alive
+2026-06-16 10:56:23,121 - autoguard.training.trainer - INFO - Epoch 71/180 | Train Loss: 0.1001 | Val Loss: 0.2239 | VQ Perplexity: 632.8 | Codebook: 1024/1024 alive
+2026-06-16 10:56:50,267 - autoguard.training.trainer - INFO - Epoch 72/180 | Train Loss: 0.1008 | Val Loss: 0.2202 | VQ Perplexity: 617.5 | Codebook: 1024/1024 alive
+2026-06-16 10:57:15,532 - autoguard.training.trainer - INFO - Epoch 73/180 | Train Loss: 0.0980 | Val Loss: 0.2231 | VQ Perplexity: 617.0 | Codebook: 1024/1024 alive
+2026-06-16 10:57:40,843 - autoguard.training.trainer - INFO - Epoch 74/180 | Train Loss: 0.0983 | Val Loss: 0.2332 | VQ Perplexity: 629.0 | Codebook: 1024/1024 alive
+2026-06-16 10:58:07,080 - autoguard.training.trainer - INFO - Epoch 75/180 | Train Loss: 0.1029 | Val Loss: 0.2342 | VQ Perplexity: 626.8 | Codebook: 1024/1024 alive
+2026-06-16 10:58:32,342 - autoguard.training.trainer - INFO - Epoch 76/180 | Train Loss: 0.0991 | Val Loss: 0.2543 | VQ Perplexity: 628.2 | Codebook: 1023/1024 alive
+2026-06-16 10:58:57,579 - autoguard.training.trainer - INFO - Epoch 77/180 | Train Loss: 0.0985 | Val Loss: 0.2275 | VQ Perplexity: 625.3 | Codebook: 1024/1024 alive
+2026-06-16 10:59:22,937 - autoguard.training.trainer - INFO - Epoch 78/180 | Train Loss: 0.0966 | Val Loss: 0.2366 | VQ Perplexity: 632.2 | Codebook: 1024/1024 alive
+2026-06-16 10:59:48,206 - autoguard.training.trainer - INFO - Epoch 79/180 | Train Loss: 0.0980 | Val Loss: 0.2330 | VQ Perplexity: 619.0 | Codebook: 1024/1024 alive
+2026-06-16 11:00:13,497 - autoguard.training.trainer - INFO - Epoch 80/180 | Train Loss: 0.0977 | Val Loss: 0.2454 | VQ Perplexity: 622.3 | Codebook: 1024/1024 alive
+2026-06-16 11:00:39,000 - autoguard.training.trainer - INFO - Epoch 81/180 | Train Loss: 0.0949 | Val Loss: 0.2394 | VQ Perplexity: 631.5 | Codebook: 1024/1024 alive
+2026-06-16 11:01:04,358 - autoguard.training.trainer - INFO - Epoch 82/180 | Train Loss: 0.0959 | Val Loss: 0.2460 | VQ Perplexity: 628.9 | Codebook: 1024/1024 alive
+2026-06-16 11:01:29,583 - autoguard.training.trainer - INFO - Epoch 83/180 | Train Loss: 0.0948 | Val Loss: 0.2519 | VQ Perplexity: 636.6 | Codebook: 1024/1024 alive
+2026-06-16 11:01:52,685 - autoguard.training.trainer - INFO - Epoch 84/180 | Train Loss: 0.0932 | Val Loss: 0.2422 | VQ Perplexity: 625.3 | Codebook: 1024/1024 alive
+2026-06-16 11:02:10,140 - autoguard.training.trainer - INFO - Epoch 85/180 | Train Loss: 0.0917 | Val Loss: 0.2611 | VQ Perplexity: 617.2 | Codebook: 1024/1024 alive
+2026-06-16 11:02:27,456 - autoguard.training.trainer - INFO - Epoch 86/180 | Train Loss: 0.0920 | Val Loss: 0.2622 | VQ Perplexity: 628.4 | Codebook: 1024/1024 alive
+2026-06-16 11:02:46,582 - autoguard.training.trainer - INFO - Epoch 87/180 | Train Loss: 0.0933 | Val Loss: 0.2525 | VQ Perplexity: 627.7 | Codebook: 1024/1024 alive
+2026-06-16 11:03:07,930 - autoguard.training.trainer - INFO - Epoch 88/180 | Train Loss: 0.0931 | Val Loss: 0.2585 | VQ Perplexity: 626.3 | Codebook: 1024/1024 alive
+2026-06-16 11:03:25,309 - autoguard.training.trainer - INFO - Epoch 89/180 | Train Loss: 0.0916 | Val Loss: 0.2683 | VQ Perplexity: 636.3 | Codebook: 1024/1024 alive
+2026-06-16 11:03:42,498 - autoguard.training.trainer - INFO - Epoch 90/180 | Train Loss: 0.0898 | Val Loss: 0.2541 | VQ Perplexity: 628.5 | Codebook: 1024/1024 alive
+2026-06-16 11:03:59,893 - autoguard.training.trainer - INFO - Epoch 91/180 | Train Loss: 0.0919 | Val Loss: 0.2627 | VQ Perplexity: 625.4 | Codebook: 1024/1024 alive
+2026-06-16 11:04:18,386 - autoguard.training.trainer - INFO - Epoch 92/180 | Train Loss: 0.0868 | Val Loss: 0.2725 | VQ Perplexity: 626.4 | Codebook: 1024/1024 alive
+2026-06-16 11:04:35,738 - autoguard.training.trainer - INFO - Epoch 93/180 | Train Loss: 0.0860 | Val Loss: 0.2663 | VQ Perplexity: 624.6 | Codebook: 1024/1024 alive
+2026-06-16 11:04:52,999 - autoguard.training.trainer - INFO - Epoch 94/180 | Train Loss: 0.0884 | Val Loss: 0.2715 | VQ Perplexity: 631.4 | Codebook: 1024/1024 alive
+2026-06-16 11:05:10,325 - autoguard.training.trainer - INFO - Epoch 95/180 | Train Loss: 0.0853 | Val Loss: 0.2866 | VQ Perplexity: 630.7 | Codebook: 1024/1024 alive
+2026-06-16 11:05:27,326 - autoguard.training.trainer - INFO - Epoch 96/180 | Train Loss: 0.0851 | Val Loss: 0.2834 | VQ Perplexity: 631.2 | Codebook: 1024/1024 alive
+2026-06-16 11:05:44,459 - autoguard.training.trainer - INFO - Epoch 97/180 | Train Loss: 0.0856 | Val Loss: 0.2821 | VQ Perplexity: 635.9 | Codebook: 1024/1024 alive
+2026-06-16 11:06:01,741 - autoguard.training.trainer - INFO - Epoch 98/180 | Train Loss: 0.0825 | Val Loss: 0.2834 | VQ Perplexity: 625.2 | Codebook: 1024/1024 alive
+2026-06-16 11:06:18,877 - autoguard.training.trainer - INFO - Epoch 99/180 | Train Loss: 0.0799 | Val Loss: 0.2814 | VQ Perplexity: 620.4 | Codebook: 1024/1024 alive
+2026-06-16 11:06:35,858 - autoguard.training.trainer - INFO - Epoch 100/180 | Train Loss: 0.0814 | Val Loss: 0.2887 | VQ Perplexity: 634.5 | Codebook: 1024/1024 alive
+2026-06-16 11:06:52,927 - autoguard.training.trainer - INFO - Epoch 101/180 | Train Loss: 0.0803 | Val Loss: 0.2871 | VQ Perplexity: 628.1 | Codebook: 1024/1024 alive
+2026-06-16 11:07:10,267 - autoguard.training.trainer - INFO - Epoch 102/180 | Train Loss: 0.0802 | Val Loss: 0.2880 | VQ Perplexity: 635.9 | Codebook: 1024/1024 alive
+2026-06-16 11:07:27,369 - autoguard.training.trainer - INFO - Epoch 103/180 | Train Loss: 0.0778 | Val Loss: 0.2850 | VQ Perplexity: 631.1 | Codebook: 1024/1024 alive
+2026-06-16 11:07:44,549 - autoguard.training.trainer - INFO - Epoch 104/180 | Train Loss: 0.0782 | Val Loss: 0.2939 | VQ Perplexity: 633.0 | Codebook: 1024/1024 alive
+2026-06-16 11:08:01,839 - autoguard.training.trainer - INFO - Epoch 105/180 | Train Loss: 0.0753 | Val Loss: 0.2874 | VQ Perplexity: 636.1 | Codebook: 1024/1024 alive
+2026-06-16 11:08:18,951 - autoguard.training.trainer - INFO - Epoch 106/180 | Train Loss: 0.0749 | Val Loss: 0.2982 | VQ Perplexity: 634.0 | Codebook: 1024/1024 alive
+2026-06-16 11:08:36,146 - autoguard.training.trainer - INFO - Epoch 107/180 | Train Loss: 0.0763 | Val Loss: 0.3003 | VQ Perplexity: 633.1 | Codebook: 1024/1024 alive
+2026-06-16 11:08:53,358 - autoguard.training.trainer - INFO - Epoch 108/180 | Train Loss: 0.0747 | Val Loss: 0.3085 | VQ Perplexity: 635.6 | Codebook: 1024/1024 alive
+2026-06-16 11:09:10,718 - autoguard.training.trainer - INFO - Epoch 109/180 | Train Loss: 0.0740 | Val Loss: 0.3058 | VQ Perplexity: 633.5 | Codebook: 1024/1024 alive
+2026-06-16 11:09:27,720 - autoguard.training.trainer - INFO - Epoch 110/180 | Train Loss: 0.0727 | Val Loss: 0.3035 | VQ Perplexity: 628.9 | Codebook: 1024/1024 alive
+2026-06-16 11:09:44,986 - autoguard.training.trainer - INFO - Epoch 111/180 | Train Loss: 0.0720 | Val Loss: 0.3083 | VQ Perplexity: 634.2 | Codebook: 1024/1024 alive
+2026-06-16 11:10:02,328 - autoguard.training.trainer - INFO - Epoch 112/180 | Train Loss: 0.0704 | Val Loss: 0.3079 | VQ Perplexity: 636.7 | Codebook: 1024/1024 alive
+2026-06-16 11:10:19,453 - autoguard.training.trainer - INFO - Epoch 113/180 | Train Loss: 0.0709 | Val Loss: 0.3223 | VQ Perplexity: 636.4 | Codebook: 1024/1024 alive
+2026-06-16 11:10:36,644 - autoguard.training.trainer - INFO - Epoch 114/180 | Train Loss: 0.0699 | Val Loss: 0.3015 | VQ Perplexity: 632.8 | Codebook: 1024/1024 alive
+2026-06-16 11:10:54,088 - autoguard.training.trainer - INFO - Epoch 115/180 | Train Loss: 0.0684 | Val Loss: 0.3156 | VQ Perplexity: 627.8 | Codebook: 1024/1024 alive
+2026-06-16 11:11:11,264 - autoguard.training.trainer - INFO - Epoch 116/180 | Train Loss: 0.0672 | Val Loss: 0.3067 | VQ Perplexity: 630.4 | Codebook: 1024/1024 alive
+2026-06-16 11:11:28,220 - autoguard.training.trainer - INFO - Epoch 117/180 | Train Loss: 0.0671 | Val Loss: 0.3150 | VQ Perplexity: 636.2 | Codebook: 1024/1024 alive
+2026-06-16 11:11:45,330 - autoguard.training.trainer - INFO - Epoch 118/180 | Train Loss: 0.0651 | Val Loss: 0.3133 | VQ Perplexity: 630.3 | Codebook: 1024/1024 alive
+2026-06-16 11:12:02,654 - autoguard.training.trainer - INFO - Epoch 119/180 | Train Loss: 0.0643 | Val Loss: 0.3323 | VQ Perplexity: 634.8 | Codebook: 1024/1024 alive
+2026-06-16 11:12:20,095 - autoguard.training.trainer - INFO - Epoch 120/180 | Train Loss: 0.0640 | Val Loss: 0.3283 | VQ Perplexity: 635.6 | Codebook: 1024/1024 alive
+2026-06-16 11:12:37,230 - autoguard.training.trainer - INFO - Epoch 121/180 | Train Loss: 0.0616 | Val Loss: 0.3172 | VQ Perplexity: 631.0 | Codebook: 1024/1024 alive
+2026-06-16 11:12:54,722 - autoguard.training.trainer - INFO - Epoch 122/180 | Train Loss: 0.0620 | Val Loss: 0.3132 | VQ Perplexity: 634.4 | Codebook: 1024/1024 alive
+2026-06-16 11:13:11,832 - autoguard.training.trainer - INFO - Epoch 123/180 | Train Loss: 0.0609 | Val Loss: 0.3316 | VQ Perplexity: 635.3 | Codebook: 1024/1024 alive
+2026-06-16 11:13:28,938 - autoguard.training.trainer - INFO - Epoch 124/180 | Train Loss: 0.0600 | Val Loss: 0.3290 | VQ Perplexity: 633.9 | Codebook: 1024/1024 alive
+2026-06-16 11:13:46,060 - autoguard.training.trainer - INFO - Epoch 125/180 | Train Loss: 0.0584 | Val Loss: 0.3196 | VQ Perplexity: 635.4 | Codebook: 1024/1024 alive
+2026-06-16 11:14:03,227 - autoguard.training.trainer - INFO - Epoch 126/180 | Train Loss: 0.0585 | Val Loss: 0.3211 | VQ Perplexity: 636.5 | Codebook: 1024/1024 alive
+2026-06-16 11:14:20,240 - autoguard.training.trainer - INFO - Epoch 127/180 | Train Loss: 0.0578 | Val Loss: 0.3285 | VQ Perplexity: 635.8 | Codebook: 1024/1024 alive
+2026-06-16 11:14:37,398 - autoguard.training.trainer - INFO - Epoch 128/180 | Train Loss: 0.0587 | Val Loss: 0.3336 | VQ Perplexity: 637.7 | Codebook: 1024/1024 alive
+2026-06-16 11:14:54,704 - autoguard.training.trainer - INFO - Epoch 129/180 | Train Loss: 0.0568 | Val Loss: 0.3363 | VQ Perplexity: 635.1 | Codebook: 1024/1024 alive
+2026-06-16 11:15:11,759 - autoguard.training.trainer - INFO - Epoch 130/180 | Train Loss: 0.0560 | Val Loss: 0.3222 | VQ Perplexity: 634.3 | Codebook: 1024/1024 alive
+2026-06-16 11:15:29,137 - autoguard.training.trainer - INFO - Epoch 131/180 | Train Loss: 0.0553 | Val Loss: 0.3383 | VQ Perplexity: 634.2 | Codebook: 1024/1024 alive
+2026-06-16 11:15:46,424 - autoguard.training.trainer - INFO - Epoch 132/180 | Train Loss: 0.0555 | Val Loss: 0.3350 | VQ Perplexity: 636.8 | Codebook: 1024/1024 alive
+2026-06-16 11:16:03,664 - autoguard.training.trainer - INFO - Epoch 133/180 | Train Loss: 0.0547 | Val Loss: 0.3333 | VQ Perplexity: 640.3 | Codebook: 1024/1024 alive
+2026-06-16 11:16:20,997 - autoguard.training.trainer - INFO - Epoch 134/180 | Train Loss: 0.0554 | Val Loss: 0.3351 | VQ Perplexity: 640.1 | Codebook: 1024/1024 alive
+2026-06-16 11:16:38,274 - autoguard.training.trainer - INFO - Epoch 135/180 | Train Loss: 0.0535 | Val Loss: 0.3437 | VQ Perplexity: 636.3 | Codebook: 1024/1024 alive
+2026-06-16 11:16:57,243 - autoguard.training.trainer - INFO - Epoch 136/180 | Train Loss: 0.0541 | Val Loss: 0.3427 | VQ Perplexity: 637.3 | Codebook: 1024/1024 alive
+2026-06-16 11:17:14,199 - autoguard.training.trainer - INFO - Epoch 137/180 | Train Loss: 0.0517 | Val Loss: 0.3435 | VQ Perplexity: 636.4 | Codebook: 1024/1024 alive
+2026-06-16 11:17:31,335 - autoguard.training.trainer - INFO - Epoch 138/180 | Train Loss: 0.0526 | Val Loss: 0.3398 | VQ Perplexity: 640.8 | Codebook: 1024/1024 alive
+2026-06-16 11:17:48,875 - autoguard.training.trainer - INFO - Epoch 139/180 | Train Loss: 0.0516 | Val Loss: 0.3458 | VQ Perplexity: 636.4 | Codebook: 1024/1024 alive
+2026-06-16 11:18:06,123 - autoguard.training.trainer - INFO - Epoch 140/180 | Train Loss: 0.0515 | Val Loss: 0.3479 | VQ Perplexity: 637.7 | Codebook: 1024/1024 alive
+2026-06-16 11:18:23,221 - autoguard.training.trainer - INFO - Epoch 141/180 | Train Loss: 0.0507 | Val Loss: 0.3421 | VQ Perplexity: 640.7 | Codebook: 1024/1024 alive
+2026-06-16 11:18:40,654 - autoguard.training.trainer - INFO - Epoch 142/180 | Train Loss: 0.0494 | Val Loss: 0.3518 | VQ Perplexity: 638.3 | Codebook: 1024/1024 alive
+2026-06-16 11:18:57,897 - autoguard.training.trainer - INFO - Epoch 143/180 | Train Loss: 0.0490 | Val Loss: 0.3440 | VQ Perplexity: 636.2 | Codebook: 1024/1024 alive
+2026-06-16 11:19:14,936 - autoguard.training.trainer - INFO - Epoch 144/180 | Train Loss: 0.0489 | Val Loss: 0.3495 | VQ Perplexity: 638.8 | Codebook: 1024/1024 alive
+2026-06-16 11:19:32,324 - autoguard.training.trainer - INFO - Epoch 145/180 | Train Loss: 0.0467 | Val Loss: 0.3472 | VQ Perplexity: 638.7 | Codebook: 1024/1024 alive
+2026-06-16 11:19:49,781 - autoguard.training.trainer - INFO - Epoch 146/180 | Train Loss: 0.0465 | Val Loss: 0.3472 | VQ Perplexity: 640.4 | Codebook: 1024/1024 alive
+2026-06-16 11:20:10,372 - autoguard.training.trainer - INFO - Epoch 147/180 | Train Loss: 0.0469 | Val Loss: 0.3549 | VQ Perplexity: 636.7 | Codebook: 1024/1024 alive
+2026-06-16 11:20:27,571 - autoguard.training.trainer - INFO - Epoch 148/180 | Train Loss: 0.0461 | Val Loss: 0.3548 | VQ Perplexity: 634.7 | Codebook: 1024/1024 alive
+2026-06-16 11:20:45,037 - autoguard.training.trainer - INFO - Epoch 149/180 | Train Loss: 0.0456 | Val Loss: 0.3485 | VQ Perplexity: 638.6 | Codebook: 1024/1024 alive
+2026-06-16 11:21:02,388 - autoguard.training.trainer - INFO - Epoch 150/180 | Train Loss: 0.0454 | Val Loss: 0.3492 | VQ Perplexity: 640.0 | Codebook: 1024/1024 alive
+2026-06-16 11:21:19,548 - autoguard.training.trainer - INFO - Epoch 151/180 | Train Loss: 0.0454 | Val Loss: 0.3509 | VQ Perplexity: 642.2 | Codebook: 1024/1024 alive
+2026-06-16 11:21:36,741 - autoguard.training.trainer - INFO - Epoch 152/180 | Train Loss: 0.0453 | Val Loss: 0.3584 | VQ Perplexity: 641.1 | Codebook: 1024/1024 alive
+2026-06-16 11:21:53,890 - autoguard.training.trainer - INFO - Epoch 153/180 | Train Loss: 0.0442 | Val Loss: 0.3519 | VQ Perplexity: 641.4 | Codebook: 1024/1024 alive
+2026-06-16 11:22:10,857 - autoguard.training.trainer - INFO - Epoch 154/180 | Train Loss: 0.0437 | Val Loss: 0.3513 | VQ Perplexity: 640.3 | Codebook: 1024/1024 alive
+2026-06-16 11:22:27,973 - autoguard.training.trainer - INFO - Epoch 155/180 | Train Loss: 0.0443 | Val Loss: 0.3503 | VQ Perplexity: 643.3 | Codebook: 1024/1024 alive
+2026-06-16 11:22:45,360 - autoguard.training.trainer - INFO - Epoch 156/180 | Train Loss: 0.0433 | Val Loss: 0.3526 | VQ Perplexity: 642.6 | Codebook: 1024/1024 alive
+2026-06-16 11:23:02,521 - autoguard.training.trainer - INFO - Epoch 157/180 | Train Loss: 0.0434 | Val Loss: 0.3487 | VQ Perplexity: 641.4 | Codebook: 1024/1024 alive
+2026-06-16 11:23:19,696 - autoguard.training.trainer - INFO - Epoch 158/180 | Train Loss: 0.0432 | Val Loss: 0.3505 | VQ Perplexity: 643.5 | Codebook: 1024/1024 alive
+2026-06-16 11:23:37,038 - autoguard.training.trainer - INFO - Epoch 159/180 | Train Loss: 0.0438 | Val Loss: 0.3500 | VQ Perplexity: 644.0 | Codebook: 1024/1024 alive
+2026-06-16 11:23:54,473 - autoguard.training.trainer - INFO - Epoch 160/180 | Train Loss: 0.0425 | Val Loss: 0.3573 | VQ Perplexity: 640.1 | Codebook: 1024/1024 alive
+2026-06-16 11:24:11,913 - autoguard.training.trainer - INFO - Epoch 161/180 | Train Loss: 0.0430 | Val Loss: 0.3584 | VQ Perplexity: 640.6 | Codebook: 1024/1024 alive
+2026-06-16 11:24:29,292 - autoguard.training.trainer - INFO - Epoch 162/180 | Train Loss: 0.0433 | Val Loss: 0.3545 | VQ Perplexity: 643.6 | Codebook: 1024/1024 alive
+2026-06-16 11:24:46,910 - autoguard.training.trainer - INFO - Epoch 163/180 | Train Loss: 0.0430 | Val Loss: 0.3564 | VQ Perplexity: 642.5 | Codebook: 1024/1024 alive
+2026-06-16 11:25:04,335 - autoguard.training.trainer - INFO - Epoch 164/180 | Train Loss: 0.0432 | Val Loss: 0.3520 | VQ Perplexity: 643.2 | Codebook: 1024/1024 alive
+2026-06-16 11:25:21,418 - autoguard.training.trainer - INFO - Epoch 165/180 | Train Loss: 0.0425 | Val Loss: 0.3589 | VQ Perplexity: 643.3 | Codebook: 1024/1024 alive
+2026-06-16 11:25:38,697 - autoguard.training.trainer - INFO - Epoch 166/180 | Train Loss: 0.0419 | Val Loss: 0.3582 | VQ Perplexity: 640.8 | Codebook: 1024/1024 alive
+2026-06-16 11:25:55,942 - autoguard.training.trainer - INFO - Epoch 167/180 | Train Loss: 0.0420 | Val Loss: 0.3579 | VQ Perplexity: 640.6 | Codebook: 1024/1024 alive
+2026-06-16 11:26:13,252 - autoguard.training.trainer - INFO - Epoch 168/180 | Train Loss: 0.0422 | Val Loss: 0.3564 | VQ Perplexity: 642.4 | Codebook: 1024/1024 alive
+2026-06-16 11:26:30,592 - autoguard.training.trainer - INFO - Epoch 169/180 | Train Loss: 0.0419 | Val Loss: 0.3567 | VQ Perplexity: 641.4 | Codebook: 1024/1024 alive
+2026-06-16 11:26:48,298 - autoguard.training.trainer - INFO - Epoch 170/180 | Train Loss: 0.0415 | Val Loss: 0.3581 | VQ Perplexity: 641.5 | Codebook: 1024/1024 alive
+2026-06-16 11:27:05,629 - autoguard.training.trainer - INFO - Epoch 171/180 | Train Loss: 0.0419 | Val Loss: 0.3578 | VQ Perplexity: 642.8 | Codebook: 1024/1024 alive
+2026-06-16 11:27:23,040 - autoguard.training.trainer - INFO - Epoch 172/180 | Train Loss: 0.0419 | Val Loss: 0.3581 | VQ Perplexity: 641.8 | Codebook: 1024/1024 alive
+2026-06-16 11:27:40,519 - autoguard.training.trainer - INFO - Epoch 173/180 | Train Loss: 0.0424 | Val Loss: 0.3580 | VQ Perplexity: 642.4 | Codebook: 1024/1024 alive
+2026-06-16 11:27:57,844 - autoguard.training.trainer - INFO - Epoch 174/180 | Train Loss: 0.0425 | Val Loss: 0.3577 | VQ Perplexity: 642.5 | Codebook: 1024/1024 alive
+2026-06-16 11:28:15,100 - autoguard.training.trainer - INFO - Epoch 175/180 | Train Loss: 0.0418 | Val Loss: 0.3580 | VQ Perplexity: 642.0 | Codebook: 1024/1024 alive
+2026-06-16 11:28:32,308 - autoguard.training.trainer - INFO - Epoch 176/180 | Train Loss: 0.0414 | Val Loss: 0.3579 | VQ Perplexity: 642.1 | Codebook: 1024/1024 alive
+2026-06-16 11:28:49,572 - autoguard.training.trainer - INFO - Epoch 177/180 | Train Loss: 0.0409 | Val Loss: 0.3584 | VQ Perplexity: 641.0 | Codebook: 1024/1024 alive
+2026-06-16 11:29:06,733 - autoguard.training.trainer - INFO - Epoch 178/180 | Train Loss: 0.0416 | Val Loss: 0.3582 | VQ Perplexity: 640.8 | Codebook: 1024/1024 alive
+2026-06-16 11:29:23,868 - autoguard.training.trainer - INFO - Epoch 179/180 | Train Loss: 0.0414 | Val Loss: 0.3579 | VQ Perplexity: 641.3 | Codebook: 1024/1024 alive
+2026-06-16 11:29:41,137 - autoguard.training.trainer - INFO - Epoch 180/180 | Train Loss: 0.0414 | Val Loss: 0.3578 | VQ Perplexity: 641.7 | Codebook: 1024/1024 alive
+2026-06-16 11:29:41,155 - __main__ - INFO -   Full training complete. Best val loss: 0.1813
+2026-06-16 11:29:41,155 - __main__ - INFO -   Checkpoint: autoguard/checkpoints/exp/autoguard/best_model.pt
+2026-06-16 11:29:41,172 - __main__ - INFO - Done.

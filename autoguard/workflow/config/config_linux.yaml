@@ -1,0 +1,89 @@
+# ===========================================================================
+# AutoGuard vs HydrAMP - experiment configuration (Linux / cluster, conda env)
+#
+#   conda env create -f autoguard/workflow/envs/autoguard.yaml
+#   conda activate autoguard
+#   snakemake -s autoguard/workflow/Snakefile --configfile autoguard/workflow/config/config_linux.yaml --cores 8
+# ===========================================================================
+
+# Python interpreter on the PATH inside the conda env
+python: "python"
+
+# Where prepared data lives
+data_dir: "autoguard/data"
+
+# Name for this experiment run
+run_name: "exp"
+
+# Global random seed
+seed: 42
+
+# Compute device: "cpu" or "cuda"
+device: "cuda"
+
+# Cap the number of training sequences (0 = use the full dataset)
+max_train: 0
+
+# Static curated tree selector
+tree_filter: "timetree*"
+
+# Full model-parameter control
+model_config: "autoguard/workflow/config/model_params.yaml"
+
+# ===========================================================================
+# Training schedule — how the epoch knobs map to AutoGuard's 5-stage protocol
+# ===========================================================================
+# AutoGuard is trained in stages (see autoguard/scripts/train.py). The default
+# Snakemake DAG runs only the two stages that matter for a fast, reproducible
+# run: (1) Poincaré phylogenetic pre-training, then (4) the full multi-task
+# VQ-VAE training. The optional warm-up and ESM-2/mimicry stages are NOT wired
+# into the default DAG — they are documented here and can be run standalone.
+#
+#   Stage 1  poincare : Fit the hyperbolic species embedding on the static
+#                       timetree.nwk          -> poincare_epochs   (DAG: YES)
+#   Stage 2  mimicry  : ESM-2 contrastive pre-training of the mimicry/safety
+#                       projectors (frozen ESM-2 backbone, requires fair-esm)
+#                                             -> 50 epochs         (DAG: NO)
+#   Stage 3  warmup   : reconstruction + VQ only, so the encoder->VQ->decoder
+#                       path learns before the conditioning losses switch on
+#                                             -> 30 epochs         (DAG: NO)
+#   Stage 4  full     : all losses (recon + VQ + AMP + mimicry + safety)
+#                                             -> autoguard_epochs   (DAG: YES)
+#   Stage 5  sae      : post-hoc sparse autoencoder for interpretability
+#                                             -> sae_epochs         (DAG: YES)
+# Run the optional pre-stages standalone
+#   python -m autoguard.scripts.train --stage warmup  --epochs 30
+#   python -m autoguard.scripts.train --stage mimicry --epochs 50
+
+# AutoGuard (conditional VQ-VAE)
+autoguard_epochs: 180         # Stage 4 epochs (converged GPU budget)
+autoguard_batch_size: 128
+autoguard_lr: 0.0001          # AdamW LR (cosine-annealing warm restarts inside)
+use_graph: true               # GG-FiLM graph encoder. It needs torch_geometric (GPU)
+use_esm: true                 # ESM-2 cross-attention/mimicry. It needs fair-esm.
+                              # When false, Stage 2 (mimicry) is skipped and the
+                              # ESM conditioning token is zero-filled.
+
+# Stage 1: Poincaré phylogenetic
+poincare_epochs: 2000
+
+use_warmup: true              # Stage 3 reconstruction+VQ warm-up before full training
+use_mimicry: true             # Stage 2 contrastive mimicry pre-training
+
+warmup_epochs: 30             # Stage 3 epochs (only used when use_warmup: true).
+mimicry_epochs: 50            # Stage 2 epochs (only used when use_mimicry: true).
+
+# HydrAMP trains in two phases inside one rule:
+#   Phase 1 (discriminators): amp_classifier + mic_classifier  -> hydramp_classifier_epochs
+#   Phase 2 (VAE backbone):    encoder + decoder               -> hydramp_epochs
+hydramp_epochs: 130
+hydramp_batch_size: 64
+hydramp_lr: 0.0001
+hydramp_classifier_epochs: 30
+
+# Sparse Autoencoder (AutoGuard interpretability / XAI)
+sae_epochs: 100
+
+# Evaluation
+num_generate: 100             # Sequences sampled per model for evaluation.
+temperature: 0.5              # Sampling (tau) temperature (higher = more diverse).

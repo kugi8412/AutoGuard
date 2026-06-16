@@ -1,0 +1,170 @@
+# ===========================================================================
+# AutoGuard vs HydrAMP — self-contained, reproducible Snakemake pipeline
+# Everything needed to run this workflow lives under autoguard/:
+#   autoguard/workflow/   <- this Snakefile + config + conda env
+#   autoguard/data/       <- prepared datasets + bundled static timetree.nwk
+#   autoguard/checkpoints, autoguard/results, autoguard/logs ← outputs
+#
+# Run from the REPOSITORY ROOT.
+# ===========================================================================
+
+configfile: "autoguard/workflow/config/config.yaml"
+
+PY        = config["python"]
+DATA_DIR  = config["data_dir"]
+RUN       = config["run_name"]
+SEED      = config["seed"]
+DEVICE    = config["device"]
+MAXTRAIN  = config["max_train"]
+TREEFILT  = config.get("tree_filter", "timetree*")
+
+CKPT      = f"autoguard/checkpoints/{RUN}"
+RESULTS   = f"autoguard/results/{RUN}"
+LOGS      = f"autoguard/logs/{RUN}"
+
+USE_GRAPH = "--use_graph" if config.get("use_graph", False) else ""
+USE_ESM   = "--build_esm" if config.get("use_esm", False) else ""
+
+# Optional model-parameter override file
+_MODEL_CFG = config.get("model_config", "")
+MODEL_CONFIG = f"--model_config {_MODEL_CFG}" if _MODEL_CFG else ""
+
+
+# ============================================================================ #
+rule all:
+    input:
+        f"{RESULTS}/comparison/comparison_report.md",
+        f"{RESULTS}/comparison/comparison_report.json",
+
+
+# ============================================================================ #
+# Stage 0: Prepare dataset
+rule prepare_data:
+    output:
+        train = f"{DATA_DIR}/processed/amp_train.csv",
+    log:
+        f"{LOGS}/prepare_data.log",
+    shell:
+        "{PY} -m autoguard.scripts.prepare_data --output_dir {DATA_DIR} > {log} 2>&1"
+
+
+# ============================================================================ #
+# Stage 1: Pre-train Poincaré phylogenetic embeddings
+rule poincare:
+    input:
+        train = f"{DATA_DIR}/processed/amp_train.csv",
+    output:
+        npz = f"{CKPT}/autoguard/poincare_trained.npz",
+    params:
+        epochs = config["poincare_epochs"],
+    log:
+        f"{LOGS}/poincare.log",
+    shell:
+        "{PY} -m autoguard.scripts.train --stage poincare --data_dir {DATA_DIR} --save_dir {CKPT}/autoguard --epochs {params.epochs} --tree_filter \"{TREEFILT}\" --seed {SEED} --device {DEVICE} {MODEL_CONFIG} > {log} 2>&1"
+
+
+# ============================================================================ #
+# Stage 2: Train AutoGuard (conditional VQ-VAE) => full multi-task stage
+rule train_autoguard:
+    input:
+        train    = f"{DATA_DIR}/processed/amp_train.csv",
+        poincare = f"{CKPT}/autoguard/poincare_trained.npz",
+    output:
+        ckpt = f"{CKPT}/autoguard/best_model.pt",
+    params:
+        epochs     = config["autoguard_epochs"],
+        batch_size = config["autoguard_batch_size"],
+        lr         = config["autoguard_lr"],
+    log:
+        f"{LOGS}/train_autoguard.log",
+    shell:
+        "{PY} -m autoguard.scripts.train --stage full --data_dir {DATA_DIR} --save_dir {CKPT}/autoguard --epochs {params.epochs} --batch_size {params.batch_size} --lr {params.lr} --tree_filter \"{TREEFILT}\" --seed {SEED} --device {DEVICE} --max_train {MAXTRAIN} {USE_GRAPH} {USE_ESM} {MODEL_CONFIG} > {log} 2>&1"
+
+
+# ============================================================================ #
+# Stage 3: Train the HydrAMP baseline (same data + seed).
+rule train_hydramp:
+    input:
+        train = f"{DATA_DIR}/processed/amp_train.csv",
+    output:
+        ckpt = f"{CKPT}/hydramp/hydramp.pt",
+    params:
+        epochs     = config["hydramp_epochs"],
+        batch_size = config["hydramp_batch_size"],
+        lr         = config["hydramp_lr"],
+        cls_epochs = config["hydramp_classifier_epochs"],
+    log:
+        f"{LOGS}/train_hydramp.log",
+    shell:
+        "{PY} -m autoguard.scripts.train_hydramp --data_dir {DATA_DIR} --save_dir {CKPT}/hydramp --epochs {params.epochs} --batch_size {params.batch_size} --lr {params.lr} --classifier_epochs {params.cls_epochs} --seed {SEED} --device {DEVICE} --max_train {MAXTRAIN} > {log} 2>&1"
+
+
+# ============================================================================ #
+# Stage 4: Train the Sparse Autoencoder on AutoGuard activations (interpretability)
+rule train_sae:
+    input:
+        ckpt = f"{CKPT}/autoguard/best_model.pt",
+    output:
+        stats = f"{CKPT}/autoguard/sae/sae_stats.json",
+    params:
+        epochs = config["sae_epochs"],
+    log:
+        f"{LOGS}/train_sae.log",
+    shell:
+        "{PY} -m autoguard.scripts.train --stage sae --data_dir {DATA_DIR} --save_dir {CKPT}/autoguard --epochs {params.epochs} --seed {SEED} --device {DEVICE} --max_train {MAXTRAIN} {USE_GRAPH} {MODEL_CONFIG} > {log} 2>&1"
+
+
+# ============================================================================ #
+# Stage 5: Generate + evaluate AutoGuard (AMP-challenge reporting metrics).
+rule eval_autoguard:
+    input:
+        ckpt = f"{CKPT}/autoguard/best_model.pt",
+    output:
+        metrics = f"{RESULTS}/autoguard/metrics.json",
+        seqs    = f"{RESULTS}/autoguard/generated.csv",
+    params:
+        num  = config["num_generate"],
+        temp = config["temperature"],
+    log:
+        f"{LOGS}/eval_autoguard.log",
+    shell:
+        "{PY} -m autoguard.scripts.evaluate_model --model autoguard --checkpoint {input.ckpt} --data_dir {DATA_DIR} --out_dir {RESULTS}/autoguard --num {params.num} --temperature {params.temp} --seed {SEED} --device {DEVICE} {USE_GRAPH} > {log} 2>&1"
+
+
+# ============================================================================ #
+# Stage 6: Generate + evaluate HydrAMP (incl. AMP-challenge reporting metrics).
+rule eval_hydramp:
+    input:
+        ckpt = f"{CKPT}/hydramp/hydramp.pt",
+    output:
+        metrics = f"{RESULTS}/hydramp/metrics.json",
+        seqs    = f"{RESULTS}/hydramp/generated.csv",
+    params:
+        num  = config["num_generate"],
+        temp = config["temperature"],
+    log:
+        f"{LOGS}/eval_hydramp.log",
+    shell:
+        "{PY} -m autoguard.scripts.evaluate_model --model hydramp --checkpoint {input.ckpt} --data_dir {DATA_DIR} --out_dir {RESULTS}/hydramp --num {params.num} --temperature {params.temp} --seed {SEED} --device {DEVICE} > {log} 2>&1"
+
+
+# ============================================================================ #
+# Stage 7: Build the side-by-side comparison report (metrics + plots + SAE).
+rule compare:
+    input:
+        ag_metrics = f"{RESULTS}/autoguard/metrics.json",
+        hamp_metrics = f"{RESULTS}/hydramp/metrics.json",
+        ag_seqs = f"{RESULTS}/autoguard/generated.csv",
+        hamp_seqs = f"{RESULTS}/hydramp/generated.csv",
+        sae = f"{CKPT}/autoguard/sae/sae_stats.json",
+    output:
+        md   = f"{RESULTS}/comparison/comparison_report.md",
+        json = f"{RESULTS}/comparison/comparison_report.json",
+        metrics_plot = f"{RESULTS}/comparison/metrics_comparison.png",
+        amp_plot     = f"{RESULTS}/comparison/amp_score_distribution.png",
+        len_plot     = f"{RESULTS}/comparison/length_distribution.png",
+        phys_plot    = f"{RESULTS}/comparison/physicochemical_comparison.png",
+    log:
+        f"{LOGS}/compare.log",
+    shell:
+        "{PY} -m autoguard.scripts.compare_report --metrics {input.ag_metrics} {input.hamp_metrics} --generated {input.ag_seqs} {input.hamp_seqs} --sae_stats {input.sae} --out_dir {RESULTS}/comparison > {log} 2>&1"

@@ -1,0 +1,26 @@
+name: autoguard
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - networkx
+  - biopython
+  - snakemake-minimal>=7
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu130 # Own PyTorch
+      - torch==2.12.0+cu130                                      # Own PyTorch
+      - ete3
+      - dendropy
+      - levenshtein
+      # Optional:
+      #   torch_geometric  -> enables the GG-FiLM graph encoder (use_graph: true)
+      #   fair-esm         -> enables ESM-2 cross-attention / mimicry (use_esm: true)
+      #   pip install torch_geometric fair-esm

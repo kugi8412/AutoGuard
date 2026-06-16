@@ -1,0 +1,58 @@
+# ===========================================================================
+# AutoGuard vs HydrAMP — experiment configuration (Windows / local venv)
+# ===========================================================================
+# Every parameter below can be overridden on the command line, e.g.:
+#   snakemake -s autoguard/workflow/Snakefile --cores 1 --config seed=7 autoguard_epochs=20
+# On Linux/macOS use config_linux.yaml instead (python: "python", forward slashes).
+# ---------------------------------------------------------------------------
+
+# Python interpreter used to run the autoguard scripts
+python: ".venv\\Scripts\\python.exe"
+
+# Where prepared data lives
+data_dir: "autoguard/data/"
+
+# Name for this experiment run
+run_name: "exp1"
+
+# Global random seed
+seed: 42
+
+# Compute device: "cpu" or "cuda".
+device: "cpu"
+
+# Cap the number of training sequences
+max_train: 1024
+
+# Static curated tree selector
+tree_filter: "timetree*"
+
+model_config: "autoguard/workflow/config/model_params.yaml"
+
+autoguard_epochs: 10
+autoguard_batch_size: 64
+autoguard_lr: 0.0003
+use_graph: false
+use_esm: false
+
+# Poincaré phylogenetic embedding pre-training
+poincare_epochs: 2000
+
+use_warmup: false
+use_mimicry: false
+
+
+warmup_epochs: 30
+mimicry_epochs: 50
+
+hydramp_epochs: 10
+hydramp_batch_size: 32
+hydramp_lr: 0.001
+hydramp_classifier_epochs: 1
+
+# Sparse Autoencoder
+sae_epochs: 20
+
+# Evaluation
+num_generate: 100
+temperature: 0.5

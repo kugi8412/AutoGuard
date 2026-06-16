@@ -1,0 +1,200 @@
+2026-06-16 10:24:43,461 - INFO -   Global seed set to 42
+2026-06-16 10:24:43,492 - INFO - Loaded 51756 sequences (positives=25941) from autoguard/data/processed/amp_train.csv
+2026-06-16 10:24:43,492 - INFO - Building HydrAMP baseline...
+2026-06-16 10:24:43,598 - INFO - HydrAMP parameters: 923,957
+2026-06-16 10:24:43,598 - INFO - Training HydrAMP for 130 epochs (batch=64)...
+/home/jakub/miniconda3/envs/autoguard/lib/python3.11/site-packages/torch/nn/modules/conv.py:380: UserWarning: Using padding='same' with even kernel lengths and odd dilation may require a zero-padded copy of the input be created (Triggered internally at /pytorch/aten/src/ATen/native/Convolution.cpp:1090.)
+  return F.conv1d(
+2026-06-16 10:24:45,326 - INFO -   [amp classifier] epoch 1/30  bce=0.4754
+2026-06-16 10:24:46,294 - INFO -   [amp classifier] epoch 2/30  bce=0.3495
+2026-06-16 10:24:47,255 - INFO -   [amp classifier] epoch 3/30  bce=0.3058
+2026-06-16 10:24:48,214 - INFO -   [amp classifier] epoch 4/30  bce=0.2728
+2026-06-16 10:24:49,179 - INFO -   [amp classifier] epoch 5/30  bce=0.2492
+2026-06-16 10:24:50,335 - INFO -   [amp classifier] epoch 6/30  bce=0.2276
+2026-06-16 10:24:52,528 - INFO -   [amp classifier] epoch 7/30  bce=0.2092
+2026-06-16 10:24:54,735 - INFO -   [amp classifier] epoch 8/30  bce=0.1955
+2026-06-16 10:24:56,947 - INFO -   [amp classifier] epoch 9/30  bce=0.1794
+2026-06-16 10:24:59,166 - INFO -   [amp classifier] epoch 10/30  bce=0.1666
+2026-06-16 10:25:01,372 - INFO -   [amp classifier] epoch 11/30  bce=0.1541
+2026-06-16 10:25:03,579 - INFO -   [amp classifier] epoch 12/30  bce=0.1454
+2026-06-16 10:25:05,788 - INFO -   [amp classifier] epoch 13/30  bce=0.1354
+2026-06-16 10:25:07,998 - INFO -   [amp classifier] epoch 14/30  bce=0.1287
+2026-06-16 10:25:10,200 - INFO -   [amp classifier] epoch 15/30  bce=0.1215
+2026-06-16 10:25:12,402 - INFO -   [amp classifier] epoch 16/30  bce=0.1194
+2026-06-16 10:25:14,612 - INFO -   [amp classifier] epoch 17/30  bce=0.1085
+2026-06-16 10:25:16,805 - INFO -   [amp classifier] epoch 18/30  bce=0.1095
+2026-06-16 10:25:19,016 - INFO -   [amp classifier] epoch 19/30  bce=0.0987
+2026-06-16 10:25:21,211 - INFO -   [amp classifier] epoch 20/30  bce=0.0939
+2026-06-16 10:25:23,418 - INFO -   [amp classifier] epoch 21/30  bce=0.0933
+2026-06-16 10:25:25,630 - INFO -   [amp classifier] epoch 22/30  bce=0.0894
+2026-06-16 10:25:27,832 - INFO -   [amp classifier] epoch 23/30  bce=0.0845
+2026-06-16 10:25:30,035 - INFO -   [amp classifier] epoch 24/30  bce=0.0796
+2026-06-16 10:25:32,239 - INFO -   [amp classifier] epoch 25/30  bce=0.0775
+2026-06-16 10:25:34,430 - INFO -   [amp classifier] epoch 26/30  bce=0.0751
+2026-06-16 10:25:36,642 - INFO -   [amp classifier] epoch 27/30  bce=0.0722
+2026-06-16 10:25:38,852 - INFO -   [amp classifier] epoch 28/30  bce=0.0759
+2026-06-16 10:25:41,042 - INFO -   [amp classifier] epoch 29/30  bce=0.0662
+2026-06-16 10:25:43,242 - INFO -   [amp classifier] epoch 30/30  bce=0.0667
+2026-06-16 10:25:45,395 - INFO -   [mic classifier] epoch 1/30  bce=0.2289
+2026-06-16 10:25:47,543 - INFO -   [mic classifier] epoch 2/30  bce=0.1517
+2026-06-16 10:25:49,691 - INFO -   [mic classifier] epoch 3/30  bce=0.1454
+2026-06-16 10:25:51,851 - INFO -   [mic classifier] epoch 4/30  bce=0.1409
+2026-06-16 10:25:53,998 - INFO -   [mic classifier] epoch 5/30  bce=0.1374
+2026-06-16 10:25:56,152 - INFO -   [mic classifier] epoch 6/30  bce=0.1347
+2026-06-16 10:25:58,321 - INFO -   [mic classifier] epoch 7/30  bce=0.1328
+2026-06-16 10:26:00,490 - INFO -   [mic classifier] epoch 8/30  bce=0.1304
+2026-06-16 10:26:02,665 - INFO -   [mic classifier] epoch 9/30  bce=0.1289
+2026-06-16 10:26:04,825 - INFO -   [mic classifier] epoch 10/30  bce=0.1266
+2026-06-16 10:26:06,986 - INFO -   [mic classifier] epoch 11/30  bce=0.1244
+2026-06-16 10:26:09,145 - INFO -   [mic classifier] epoch 12/30  bce=0.1232
+2026-06-16 10:26:11,301 - INFO -   [mic classifier] epoch 13/30  bce=0.1215
+2026-06-16 10:26:13,460 - INFO -   [mic classifier] epoch 14/30  bce=0.1203
+2026-06-16 10:26:15,612 - INFO -   [mic classifier] epoch 15/30  bce=0.1186
+2026-06-16 10:26:17,771 - INFO -   [mic classifier] epoch 16/30  bce=0.1172
+2026-06-16 10:26:19,927 - INFO -   [mic classifier] epoch 17/30  bce=0.1160
+2026-06-16 10:26:22,062 - INFO -   [mic classifier] epoch 18/30  bce=0.1140
+2026-06-16 10:26:24,199 - INFO -   [mic classifier] epoch 19/30  bce=0.1128
+2026-06-16 10:26:26,341 - INFO -   [mic classifier] epoch 20/30  bce=0.1115
+2026-06-16 10:26:28,501 - INFO -   [mic classifier] epoch 21/30  bce=0.1104
+2026-06-16 10:26:30,661 - INFO -   [mic classifier] epoch 22/30  bce=0.1080
+2026-06-16 10:26:32,831 - INFO -   [mic classifier] epoch 23/30  bce=0.1064
+2026-06-16 10:26:34,988 - INFO -   [mic classifier] epoch 24/30  bce=0.1056
+2026-06-16 10:26:37,142 - INFO -   [mic classifier] epoch 25/30  bce=0.1043
+2026-06-16 10:26:39,304 - INFO -   [mic classifier] epoch 26/30  bce=0.1032
+2026-06-16 10:26:41,451 - INFO -   [mic classifier] epoch 27/30  bce=0.1013
+2026-06-16 10:26:43,595 - INFO -   [mic classifier] epoch 28/30  bce=0.1004
+2026-06-16 10:26:45,752 - INFO -   [mic classifier] epoch 29/30  bce=0.0994
+2026-06-16 10:26:47,851 - INFO -   [mic classifier] epoch 30/30  bce=0.0979
+2026-06-16 10:27:04,290 - INFO -   [VAE] epoch 1/130  total=175.1859  rcl=174.2661  kl=64.6939  kl_w=1.00e-04
+2026-06-16 10:27:19,950 - INFO -   [VAE] epoch 2/130  total=169.9839  rcl=169.2029  kl=158.0903  kl_w=1.99e-04
+2026-06-16 10:27:35,807 - INFO -   [VAE] epoch 3/130  total=169.6443  rcl=168.8969  kl=172.9221  kl_w=2.98e-04
+2026-06-16 10:27:51,486 - INFO -   [VAE] epoch 4/130  total=169.5693  rcl=168.8246  kl=147.7969  kl_w=3.97e-04
+2026-06-16 10:28:07,220 - INFO -   [VAE] epoch 5/130  total=169.5124  rcl=168.7701  kl=125.6886  kl_w=4.96e-04
+2026-06-16 10:28:22,980 - INFO -   [VAE] epoch 6/130  total=169.1983  rcl=168.4692  kl=114.9436  kl_w=5.95e-04
+2026-06-16 10:28:38,526 - INFO -   [VAE] epoch 7/130  total=167.8573  rcl=167.1603  kl=126.9283  kl_w=6.94e-04
+2026-06-16 10:28:54,353 - INFO -   [VAE] epoch 8/130  total=167.2342  rcl=166.5574  kl=124.9794  kl_w=7.93e-04
+2026-06-16 10:29:09,989 - INFO -   [VAE] epoch 9/130  total=166.5494  rcl=165.8643  kl=119.9236  kl_w=8.92e-04
+2026-06-16 10:29:25,602 - INFO -   [VAE] epoch 10/130  total=166.2286  rcl=165.5595  kl=113.7751  kl_w=9.91e-04
+2026-06-16 10:29:41,336 - INFO -   [VAE] epoch 11/130  total=165.9925  rcl=165.3380  kl=113.0918  kl_w=1.09e-03
+2026-06-16 10:29:56,867 - INFO -   [VAE] epoch 12/130  total=165.8464  rcl=165.1985  kl=111.2446  kl_w=1.19e-03
+2026-06-16 10:30:12,684 - INFO -   [VAE] epoch 13/130  total=165.7310  rcl=165.0899  kl=107.4759  kl_w=1.29e-03
+2026-06-16 10:30:28,269 - INFO -   [VAE] epoch 14/130  total=165.6578  rcl=165.0199  kl=104.1593  kl_w=1.39e-03
+2026-06-16 10:30:43,881 - INFO -   [VAE] epoch 15/130  total=165.5975  rcl=164.9670  kl=99.6320  kl_w=1.49e-03
+2026-06-16 10:31:01,532 - INFO -   [VAE] epoch 16/130  total=165.5853  rcl=164.9538  kl=95.6607  kl_w=1.59e-03
+2026-06-16 10:31:17,154 - INFO -   [VAE] epoch 17/130  total=165.5951  rcl=164.9628  kl=92.3650  kl_w=1.68e-03
+2026-06-16 10:31:32,798 - INFO -   [VAE] epoch 18/130  total=165.5627  rcl=164.9332  kl=87.6214  kl_w=1.78e-03
+2026-06-16 10:31:48,528 - INFO -   [VAE] epoch 19/130  total=165.6047  rcl=164.9788  kl=82.5782  kl_w=1.88e-03
+2026-06-16 10:32:04,160 - INFO -   [VAE] epoch 20/130  total=165.5061  rcl=164.8802  kl=79.3363  kl_w=1.98e-03
+2026-06-16 10:32:20,889 - INFO -   [VAE] epoch 21/130  total=165.4976  rcl=164.8704  kl=76.4260  kl_w=2.08e-03
+2026-06-16 10:32:36,521 - INFO -   [VAE] epoch 22/130  total=165.5076  rcl=164.8812  kl=72.8946  kl_w=2.18e-03
+2026-06-16 10:32:52,077 - INFO -   [VAE] epoch 23/130  total=165.5433  rcl=164.9187  kl=70.1989  kl_w=2.28e-03
+2026-06-16 10:33:07,884 - INFO -   [VAE] epoch 24/130  total=165.5647  rcl=164.9427  kl=66.3641  kl_w=2.38e-03
+2026-06-16 10:33:23,509 - INFO -   [VAE] epoch 25/130  total=165.4315  rcl=164.8116  kl=65.1112  kl_w=2.48e-03
+2026-06-16 10:33:39,320 - INFO -   [VAE] epoch 26/130  total=165.4381  rcl=164.8139  kl=63.8414  kl_w=2.58e-03
+2026-06-16 10:33:55,709 - INFO -   [VAE] epoch 27/130  total=165.3823  rcl=164.7594  kl=62.1544  kl_w=2.67e-03
+2026-06-16 10:34:12,834 - INFO -   [VAE] epoch 28/130  total=165.3870  rcl=164.7633  kl=60.4142  kl_w=2.77e-03
+2026-06-16 10:34:29,259 - INFO -   [VAE] epoch 29/130  total=165.3087  rcl=164.6801  kl=60.7062  kl_w=2.87e-03
+2026-06-16 10:34:45,754 - INFO -   [VAE] epoch 30/130  total=165.3075  rcl=164.6706  kl=60.5785  kl_w=2.97e-03
+2026-06-16 10:35:02,273 - INFO -   [VAE] epoch 31/130  total=165.2382  rcl=164.5862  kl=64.9964  kl_w=3.07e-03
+2026-06-16 10:35:18,722 - INFO -   [VAE] epoch 32/130  total=164.8932  rcl=164.2180  kl=71.2970  kl_w=3.17e-03
+2026-06-16 10:35:35,250 - INFO -   [VAE] epoch 33/130  total=164.7222  rcl=164.0329  kl=72.5409  kl_w=3.27e-03
+2026-06-16 10:35:51,691 - INFO -   [VAE] epoch 34/130  total=164.6033  rcl=163.9052  kl=71.8624  kl_w=3.37e-03
+2026-06-16 10:36:08,082 - INFO -   [VAE] epoch 35/130  total=164.5351  rcl=163.8312  kl=71.3093  kl_w=3.47e-03
+2026-06-16 10:36:23,844 - INFO -   [VAE] epoch 36/130  total=164.4969  rcl=163.7892  kl=70.4278  kl_w=3.57e-03
+2026-06-16 10:36:39,487 - INFO -   [VAE] epoch 37/130  total=164.4045  rcl=163.6920  kl=69.1696  kl_w=3.66e-03
+2026-06-16 10:36:55,304 - INFO -   [VAE] epoch 38/130  total=164.3473  rcl=163.6308  kl=68.6071  kl_w=3.76e-03
+2026-06-16 10:37:10,925 - INFO -   [VAE] epoch 39/130  total=164.2752  rcl=163.5555  kl=67.8818  kl_w=3.86e-03
+2026-06-16 10:37:26,573 - INFO -   [VAE] epoch 40/130  total=164.1519  rcl=163.4312  kl=67.3387  kl_w=3.96e-03
+2026-06-16 10:37:42,439 - INFO -   [VAE] epoch 41/130  total=164.0969  rcl=163.3713  kl=67.3117  kl_w=4.06e-03
+2026-06-16 10:37:58,100 - INFO -   [VAE] epoch 42/130  total=164.0311  rcl=163.2987  kl=66.6807  kl_w=4.16e-03
+2026-06-16 10:38:13,897 - INFO -   [VAE] epoch 43/130  total=163.9265  rcl=163.1938  kl=66.0715  kl_w=4.26e-03
+2026-06-16 10:38:29,525 - INFO -   [VAE] epoch 44/130  total=163.7934  rcl=163.0585  kl=65.4150  kl_w=4.36e-03
+2026-06-16 10:38:45,193 - INFO -   [VAE] epoch 45/130  total=163.7752  rcl=163.0410  kl=64.1637  kl_w=4.46e-03
+2026-06-16 10:39:01,037 - INFO -   [VAE] epoch 46/130  total=163.7484  rcl=163.0126  kl=63.5226  kl_w=4.56e-03
+2026-06-16 10:39:16,672 - INFO -   [VAE] epoch 47/130  total=163.7353  rcl=162.9978  kl=62.8878  kl_w=4.65e-03
+2026-06-16 10:39:32,287 - INFO -   [VAE] epoch 48/130  total=163.6752  rcl=162.9381  kl=62.1579  kl_w=4.75e-03
+2026-06-16 10:39:48,113 - INFO -   [VAE] epoch 49/130  total=163.5770  rcl=162.8352  kl=61.9086  kl_w=4.85e-03
+2026-06-16 10:40:03,774 - INFO -   [VAE] epoch 50/130  total=163.4983  rcl=162.7544  kl=61.4596  kl_w=4.95e-03
+2026-06-16 10:40:19,674 - INFO -   [VAE] epoch 51/130  total=163.4408  rcl=162.6934  kl=60.8523  kl_w=5.05e-03
+2026-06-16 10:40:36,269 - INFO -   [VAE] epoch 52/130  total=163.3685  rcl=162.6164  kl=60.7733  kl_w=5.15e-03
+2026-06-16 10:40:52,606 - INFO -   [VAE] epoch 53/130  total=163.4153  rcl=162.6678  kl=60.3527  kl_w=5.25e-03
+2026-06-16 10:41:09,247 - INFO -   [VAE] epoch 54/130  total=163.5031  rcl=162.7555  kl=59.9378  kl_w=5.35e-03
+2026-06-16 10:41:25,880 - INFO -   [VAE] epoch 55/130  total=163.3575  rcl=162.6024  kl=59.3500  kl_w=5.45e-03
+2026-06-16 10:41:42,453 - INFO -   [VAE] epoch 56/130  total=163.2561  rcl=162.4979  kl=59.0243  kl_w=5.55e-03
+2026-06-16 10:41:59,008 - INFO -   [VAE] epoch 57/130  total=163.1656  rcl=162.4014  kl=58.2822  kl_w=5.64e-03
+2026-06-16 10:42:15,466 - INFO -   [VAE] epoch 58/130  total=163.1399  rcl=162.3735  kl=57.9768  kl_w=5.74e-03
+2026-06-16 10:42:31,963 - INFO -   [VAE] epoch 59/130  total=163.2632  rcl=162.5011  kl=56.8270  kl_w=5.84e-03
+2026-06-16 10:42:48,488 - INFO -   [VAE] epoch 60/130  total=163.1457  rcl=162.3776  kl=56.5281  kl_w=5.94e-03
+2026-06-16 10:43:05,091 - INFO -   [VAE] epoch 61/130  total=163.1767  rcl=162.4083  kl=55.9773  kl_w=6.04e-03
+2026-06-16 10:43:21,493 - INFO -   [VAE] epoch 62/130  total=163.2724  rcl=162.5070  kl=55.6491  kl_w=6.14e-03
+2026-06-16 10:43:37,832 - INFO -   [VAE] epoch 63/130  total=163.2138  rcl=162.4419  kl=54.9227  kl_w=6.24e-03
+2026-06-16 10:43:54,382 - INFO -   [VAE] epoch 64/130  total=163.2746  rcl=162.5037  kl=54.3778  kl_w=6.34e-03
+2026-06-16 10:44:10,873 - INFO -   [VAE] epoch 65/130  total=163.1006  rcl=162.3284  kl=54.0438  kl_w=6.44e-03
+2026-06-16 10:44:27,344 - INFO -   [VAE] epoch 66/130  total=163.0686  rcl=162.2952  kl=53.3397  kl_w=6.54e-03
+2026-06-16 10:44:43,820 - INFO -   [VAE] epoch 67/130  total=162.9466  rcl=162.1719  kl=53.3757  kl_w=6.63e-03
+2026-06-16 10:45:00,337 - INFO -   [VAE] epoch 68/130  total=162.9893  rcl=162.2144  kl=52.7878  kl_w=6.73e-03
+2026-06-16 10:45:16,625 - INFO -   [VAE] epoch 69/130  total=163.0304  rcl=162.2514  kl=52.2944  kl_w=6.83e-03
+2026-06-16 10:45:33,200 - INFO -   [VAE] epoch 70/130  total=162.8635  rcl=162.0832  kl=52.1033  kl_w=6.93e-03
+2026-06-16 10:45:49,657 - INFO -   [VAE] epoch 71/130  total=162.8539  rcl=162.0706  kl=51.9504  kl_w=7.03e-03
+2026-06-16 10:46:06,215 - INFO -   [VAE] epoch 72/130  total=162.8675  rcl=162.0875  kl=51.3430  kl_w=7.13e-03
+2026-06-16 10:46:22,783 - INFO -   [VAE] epoch 73/130  total=162.9021  rcl=162.1204  kl=50.6859  kl_w=7.23e-03
+2026-06-16 10:46:39,255 - INFO -   [VAE] epoch 74/130  total=162.8208  rcl=162.0328  kl=50.5710  kl_w=7.33e-03
+2026-06-16 10:46:55,790 - INFO -   [VAE] epoch 75/130  total=162.8686  rcl=162.0788  kl=50.3309  kl_w=7.43e-03
+2026-06-16 10:47:12,350 - INFO -   [VAE] epoch 76/130  total=162.8230  rcl=162.0291  kl=50.0071  kl_w=7.53e-03
+2026-06-16 10:47:28,810 - INFO -   [VAE] epoch 77/130  total=162.7642  rcl=161.9669  kl=49.9581  kl_w=7.62e-03
+2026-06-16 10:47:45,219 - INFO -   [VAE] epoch 78/130  total=162.7415  rcl=161.9433  kl=49.8731  kl_w=7.72e-03
+2026-06-16 10:48:01,606 - INFO -   [VAE] epoch 79/130  total=162.6912  rcl=161.8836  kl=49.7166  kl_w=7.82e-03
+2026-06-16 10:48:18,026 - INFO -   [VAE] epoch 80/130  total=162.6952  rcl=161.8773  kl=50.1835  kl_w=7.92e-03
+2026-06-16 10:48:34,519 - INFO -   [VAE] epoch 81/130  total=162.6536  rcl=161.8354  kl=49.7385  kl_w=8.02e-03
+2026-06-16 10:48:51,172 - INFO -   [VAE] epoch 82/130  total=162.6157  rcl=161.7911  kl=49.8498  kl_w=8.12e-03
+2026-06-16 10:49:07,668 - INFO -   [VAE] epoch 83/130  total=162.5539  rcl=161.7222  kl=49.6591  kl_w=8.22e-03
+2026-06-16 10:49:23,990 - INFO -   [VAE] epoch 84/130  total=162.5310  rcl=161.6845  kl=49.6747  kl_w=8.32e-03
+2026-06-16 10:49:40,357 - INFO -   [VAE] epoch 85/130  total=162.5270  rcl=161.6729  kl=49.7352  kl_w=8.42e-03
+2026-06-16 10:49:56,787 - INFO -   [VAE] epoch 86/130  total=162.4749  rcl=161.6093  kl=49.8910  kl_w=8.51e-03
+2026-06-16 10:50:13,266 - INFO -   [VAE] epoch 87/130  total=162.3991  rcl=161.5152  kl=50.5848  kl_w=8.61e-03
+2026-06-16 10:50:29,840 - INFO -   [VAE] epoch 88/130  total=162.3833  rcl=161.5006  kl=50.2226  kl_w=8.71e-03
+2026-06-16 10:50:46,154 - INFO -   [VAE] epoch 89/130  total=162.2658  rcl=161.3749  kl=50.4008  kl_w=8.81e-03
+2026-06-16 10:51:02,600 - INFO -   [VAE] epoch 90/130  total=162.2097  rcl=161.3152  kl=50.4085  kl_w=8.91e-03
+2026-06-16 10:51:19,094 - INFO -   [VAE] epoch 91/130  total=162.1932  rcl=161.2955  kl=49.9803  kl_w=9.01e-03
+2026-06-16 10:51:35,585 - INFO -   [VAE] epoch 92/130  total=162.1040  rcl=161.2004  kl=50.2995  kl_w=9.11e-03
+2026-06-16 10:51:52,067 - INFO -   [VAE] epoch 93/130  total=162.1166  rcl=161.2077  kl=50.0896  kl_w=9.21e-03
+2026-06-16 10:52:08,629 - INFO -   [VAE] epoch 94/130  total=162.1232  rcl=161.2194  kl=49.2856  kl_w=9.31e-03
+2026-06-16 10:52:25,095 - INFO -   [VAE] epoch 95/130  total=162.0962  rcl=161.1922  kl=48.9377  kl_w=9.41e-03
+2026-06-16 10:52:42,491 - INFO -   [VAE] epoch 96/130  total=162.0472  rcl=161.1392  kl=48.9784  kl_w=9.51e-03
+2026-06-16 10:52:58,991 - INFO -   [VAE] epoch 97/130  total=161.9880  rcl=161.0785  kl=48.9803  kl_w=9.60e-03
+2026-06-16 10:53:15,419 - INFO -   [VAE] epoch 98/130  total=161.9786  rcl=161.0620  kl=49.0168  kl_w=9.70e-03
+2026-06-16 10:53:31,712 - INFO -   [VAE] epoch 99/130  total=161.9012  rcl=160.9778  kl=48.9519  kl_w=9.80e-03
+2026-06-16 10:53:48,273 - INFO -   [VAE] epoch 100/130  total=161.8937  rcl=160.9735  kl=48.3617  kl_w=9.90e-03
+2026-06-16 10:54:04,659 - INFO -   [VAE] epoch 101/130  total=161.8811  rcl=160.9543  kl=48.3581  kl_w=1.00e-02
+2026-06-16 10:54:21,179 - INFO -   [VAE] epoch 102/130  total=161.8914  rcl=160.9685  kl=48.3801  kl_w=1.00e-02
+2026-06-16 10:54:37,735 - INFO -   [VAE] epoch 103/130  total=161.8431  rcl=160.9222  kl=48.3058  kl_w=1.00e-02
+2026-06-16 10:54:54,256 - INFO -   [VAE] epoch 104/130  total=161.8228  rcl=160.9031  kl=48.0035  kl_w=1.00e-02
+2026-06-16 10:55:10,771 - INFO -   [VAE] epoch 105/130  total=161.7590  rcl=160.8380  kl=48.1604  kl_w=1.00e-02
+2026-06-16 10:55:27,141 - INFO -   [VAE] epoch 106/130  total=161.8042  rcl=160.8847  kl=47.8345  kl_w=1.00e-02
+2026-06-16 10:55:43,098 - INFO -   [VAE] epoch 107/130  total=161.7921  rcl=160.8788  kl=47.4800  kl_w=1.00e-02
+2026-06-16 10:55:58,775 - INFO -   [VAE] epoch 108/130  total=161.7775  rcl=160.8695  kl=47.1520  kl_w=1.00e-02
+2026-06-16 10:56:14,600 - INFO -   [VAE] epoch 109/130  total=161.7550  rcl=160.8454  kl=47.0266  kl_w=1.00e-02
+2026-06-16 10:56:30,198 - INFO -   [VAE] epoch 110/130  total=161.7331  rcl=160.8286  kl=46.9820  kl_w=1.00e-02
+2026-06-16 10:56:47,838 - INFO -   [VAE] epoch 111/130  total=161.7342  rcl=160.8343  kl=46.7432  kl_w=1.00e-02
+2026-06-16 10:57:03,487 - INFO -   [VAE] epoch 112/130  total=161.6312  rcl=160.7244  kl=47.2319  kl_w=1.00e-02
+2026-06-16 10:57:19,162 - INFO -   [VAE] epoch 113/130  total=161.6021  rcl=160.6989  kl=46.8834  kl_w=1.00e-02
+2026-06-16 10:57:35,025 - INFO -   [VAE] epoch 114/130  total=161.6391  rcl=160.7389  kl=46.5068  kl_w=1.00e-02
+2026-06-16 10:57:51,550 - INFO -   [VAE] epoch 115/130  total=161.6395  rcl=160.7390  kl=46.6108  kl_w=1.00e-02
+2026-06-16 10:58:07,152 - INFO -   [VAE] epoch 116/130  total=161.5799  rcl=160.6836  kl=46.6032  kl_w=1.00e-02
+2026-06-16 10:58:22,982 - INFO -   [VAE] epoch 117/130  total=161.5839  rcl=160.6981  kl=46.4502  kl_w=1.00e-02
+2026-06-16 10:58:38,629 - INFO -   [VAE] epoch 118/130  total=161.6247  rcl=160.7434  kl=46.2251  kl_w=1.00e-02
+2026-06-16 10:58:54,474 - INFO -   [VAE] epoch 119/130  total=161.6973  rcl=160.8191  kl=45.9295  kl_w=1.00e-02
+2026-06-16 10:59:10,115 - INFO -   [VAE] epoch 120/130  total=161.5534  rcl=160.6727  kl=46.0467  kl_w=1.00e-02
+2026-06-16 10:59:25,713 - INFO -   [VAE] epoch 121/130  total=161.5244  rcl=160.6459  kl=46.1372  kl_w=1.00e-02
+2026-06-16 10:59:41,566 - INFO -   [VAE] epoch 122/130  total=161.4478  rcl=160.5716  kl=46.1295  kl_w=1.00e-02
+2026-06-16 10:59:57,238 - INFO -   [VAE] epoch 123/130  total=161.4122  rcl=160.5331  kl=46.1569  kl_w=1.00e-02
+2026-06-16 11:00:12,974 - INFO -   [VAE] epoch 124/130  total=161.4251  rcl=160.5471  kl=45.8381  kl_w=1.00e-02
+2026-06-16 11:00:28,728 - INFO -   [VAE] epoch 125/130  total=161.4573  rcl=160.5881  kl=45.4603  kl_w=1.00e-02
+2026-06-16 11:00:44,325 - INFO -   [VAE] epoch 126/130  total=161.4846  rcl=160.6193  kl=45.2967  kl_w=1.00e-02
+2026-06-16 11:01:00,151 - INFO -   [VAE] epoch 127/130  total=161.4503  rcl=160.5852  kl=45.1778  kl_w=1.00e-02
+2026-06-16 11:01:15,816 - INFO -   [VAE] epoch 128/130  total=161.3882  rcl=160.5247  kl=45.2987  kl_w=1.00e-02
+2026-06-16 11:01:31,460 - INFO -   [VAE] epoch 129/130  total=161.3065  rcl=160.4452  kl=45.1974  kl_w=1.00e-02
+2026-06-16 11:01:47,491 - INFO -   [VAE] epoch 130/130  total=161.3371  rcl=160.4771  kl=45.2157  kl_w=1.00e-02
+2026-06-16 11:01:47,496 - INFO - Saved checkpoint: autoguard/checkpoints/exp/hydramp/hydramp.pt
+2026-06-16 11:01:47,496 - INFO - Saved metadata:   autoguard/checkpoints/exp/hydramp/train_meta.json
+2026-06-16 11:01:47,496 - INFO - HydrAMP training complete.

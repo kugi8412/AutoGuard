@@ -1,0 +1,72 @@
+{
+  "models": [
+    {
+      "model": "autoguard",
+      "checkpoint": "autoguard/checkpoints/exp/autoguard/best_model.pt",
+      "seed": 42,
+      "num_generated": 82,
+      "mean_length": 6.426829268292683,
+      "novelty": 1.0,
+      "diversity": 0.879858395865519,
+      "mean_amp_score": 0.6758875861400511,
+      "amp_hit_rate": 1.0,
+      "hydrophobicity_ratio": 0.431201798130553,
+      "quality_score": 0.6319787593798278,
+      "unique_fraction": 1.0,
+      "length_valid_fraction": 0.3170731707317073,
+      "canonical_fraction": 1.0,
+      "challenge_valid_fraction": 0.3170731707317073,
+      "num_overlap_reference": 0,
+      "predicted_success_rate": 0.24390243902439024,
+      "predicted_mic50": 20.86825942993164,
+      "predicted_mic90": 30.06209831237793,
+      "predicted_safety_window": 6.133717058203359,
+      "predicted_non_hemolytic_fraction": 1.0,
+      "top_k_max_identity": 0.625,
+      "top_k_identity_violations": 0
+    },
+    {
+      "model": "hydramp",
+      "checkpoint": "autoguard/checkpoints/exp/hydramp/hydramp.pt",
+      "seed": 42,
+      "num_generated": 100,
+      "mean_length": 9.01,
+      "novelty": 1.0,
+      "diversity": 0.29959507386038,
+      "mean_amp_score": 0.8812240674346685,
+      "amp_hit_rate": 0.91,
+      "hydrophobicity_ratio": 0.46633613608613605,
+      "quality_score": 0.522439261079057,
+      "unique_fraction": 0.53,
+      "length_valid_fraction": 0.96,
+      "canonical_fraction": 1.0,
+      "challenge_valid_fraction": 0.9622641509433962,
+      "num_overlap_reference": 0,
+      "predicted_success_rate": 0.86,
+      "predicted_mic50": 1.5562095642089844,
+      "predicted_mic90": 28.331797409057625,
+      "predicted_safety_window": NaN,
+      "predicted_non_hemolytic_fraction": NaN,
+      "top_k_max_identity": 0.75,
+      "top_k_identity_violations": 0
+    }
+  ],
+  "overall_winner": "autoguard",
+  "sae": {
+    "best_loss": 2.0787102857866558e-05,
+    "hidden_dim": 96,
+    "input_dim": 48,
+    "dead_features": 0,
+    "alive_features": 96,
+    "sparsity_lambda": 0.001,
+    "top_k": 16,
+    "num_activations": 5000,
+    "seed": 42
+  },
+  "plots": [
+    "metrics_comparison.png",
+    "amp_score_distribution.png",
+    "length_distribution.png",
+    "physicochemical_comparison.png"
+  ]
+}

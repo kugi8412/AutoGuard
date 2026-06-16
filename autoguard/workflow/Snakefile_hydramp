@@ -1,0 +1,83 @@
+# ===========================================================================
+# HydrAMP — staged training + evaluation pipeline (baseline-only)
+# This workflow trains ONLY the HydrAMP baseline (PyTorch port of Szymczak et
+# al., Nat Commun 2023). HydrAMP trains in two phases, both config-driven:
+#
+#   Phase 1  discriminators : amp_classifier + mic_classifier are pre-trained
+#                             -> hydramp_classifier_epochs
+#   Phase 2  vae            : the encoder/decoder backbone is trained while the
+#                             frozen discriminators steer the latent space
+#                             -> hydramp_epochs
+# Run from the REPOSITORY ROOT.
+#
+# Pipeline DAG:
+#   prepare_data -> train_hydramp ─> eval_hydramp
+# ===========================================================================
+
+configfile: "autoguard/workflow/config/config.yaml"
+
+PY        = config["python"]
+DATA_DIR  = config["data_dir"]
+RUN       = config["run_name"]
+SEED      = config["seed"]
+DEVICE    = config["device"]
+MAXTRAIN  = config["max_train"]
+
+CKPT      = f"autoguard/checkpoints/{RUN}"
+RESULTS   = f"autoguard/results/{RUN}"
+LOGS      = f"autoguard/logs/{RUN}"
+HAMP      = f"{CKPT}/hydramp"
+
+
+# ============================================================================ #
+rule all:
+    input:
+        f"{RESULTS}/hydramp/metrics.json",
+
+
+# ============================================================================ #
+# Stage 0: Prepare datasets into autoguard/data/.
+rule prepare_data:
+    output:
+        train = f"{DATA_DIR}/processed/amp_train.csv",
+    log:
+        f"{LOGS}/prepare_data.log",
+    shell:
+        "{PY} -m autoguard.scripts.prepare_data --output_dir {DATA_DIR} > {log} 2>&1"
+
+
+# ============================================================================ #
+# Stage 1: Train HydrAMP (Phase 1 discriminators + Phase 2 VAE in one invocation).
+#   Phase 1 epochs -> hydramp_classifier_epochs
+#   Phase 2 epochs -> hydramp_epochs
+rule train_hydramp:
+    input:
+        train = f"{DATA_DIR}/processed/amp_train.csv",
+    output:
+        ckpt = f"{HAMP}/hydramp.pt",
+    params:
+        epochs     = config["hydramp_epochs"],
+        batch_size = config["hydramp_batch_size"],
+        lr         = config["hydramp_lr"],
+        cls_epochs = config["hydramp_classifier_epochs"],
+    log:
+        f"{LOGS}/train_hydramp.log",
+    shell:
+        "{PY} -m autoguard.scripts.train_hydramp --data_dir {DATA_DIR} --save_dir {HAMP} --epochs {params.epochs} --batch_size {params.batch_size} --lr {params.lr} --classifier_epochs {params.cls_epochs} --seed {SEED} --device {DEVICE} --max_train {MAXTRAIN} > {log} 2>&1"
+
+
+# ============================================================================ #
+# Stage 2: Generate + evaluate HydrAMP (AMP-challenge reporting metrics).
+rule eval_hydramp:
+    input:
+        ckpt = f"{HAMP}/hydramp.pt",
+    output:
+        metrics = f"{RESULTS}/hydramp/metrics.json",
+        seqs    = f"{RESULTS}/hydramp/generated.csv",
+    params:
+        num  = config["num_generate"],
+        temp = config["temperature"],
+    log:
+        f"{LOGS}/eval_hydramp.log",
+    shell:
+        "{PY} -m autoguard.scripts.evaluate_model --model hydramp --checkpoint {input.ckpt} --data_dir {DATA_DIR} --out_dir {RESULTS}/hydramp --num {params.num} --temperature {params.temp} --seed {SEED} --device {DEVICE} > {log} 2>&1"

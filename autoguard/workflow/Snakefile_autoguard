@@ -1,0 +1,211 @@
+# ===========================================================================
+# AutoGuard — staged training + evaluation pipeline (model-only)
+# ===========================================================================
+# This workflow trains ONLY AutoGuard, with one Snakemake rule per training
+# stage so every stage's epoch budget is config-driven and independently
+# re-runnable. For the HydrAMP baseline use Snakefile_hydramp; for the
+# side-by-side comparison use the original Snakefile.
+#
+# Run from the REPOSITORY ROOT.
+#
+# Windows (PowerShell / cmd.exe), local venv:
+#   snakemake -s autoguard/workflow/Snakefile_autoguard --cores 1
+#
+# Linux / macOS (bash), conda env:
+#   snakemake -s autoguard/workflow/Snakefile_autoguard \
+#       --configfile autoguard/workflow/config/config_linux.yaml --cores 4
+#
+# Dry-run / preview the DAG:
+#   snakemake -s autoguard/workflow/Snakefile_autoguard -n
+#
+# Enable the optional pre-stages (warm-up + contrastive mimicry):
+#   snakemake -s autoguard/workflow/Snakefile_autoguard --cores 1 \
+#       --config use_warmup=true use_mimicry=true
+#
+# Per-stage epoch (config.yaml):
+#   poincare_epochs   Stage 1  Poincaré phylogenetic embedding pre-training
+#   mimicry_epochs    Stage 2  contrastive mimicry pre-training   (use_mimicry)
+#   warmup_epochs     Stage 3  reconstruction + VQ warm-up        (use_warmup)
+#   autoguard_epochs  Stage 4  full multi-task training
+#   sae_epochs        Stage 5  sparse-autoencoder interpretability
+#
+# Default DAG (use_warmup / use_mimicry = false):
+#   prepare_data -> poincare -> full --->  sae
+#                                     |-> eval
+# ===========================================================================
+
+configfile: "autoguard/workflow/config/config.yaml"
+
+PY        = config["python"]
+DATA_DIR  = config["data_dir"]
+RUN       = config["run_name"]
+SEED      = config["seed"]
+DEVICE    = config["device"]
+MAXTRAIN  = config["max_train"]
+TREEFILT  = config.get("tree_filter", "timetree*")
+
+CKPT      = f"autoguard/checkpoints/{RUN}"
+RESULTS   = f"autoguard/results/{RUN}"
+LOGS      = f"autoguard/logs/{RUN}"
+AG        = f"{CKPT}/autoguard"
+
+USE_GRAPH = "--use_graph" if config.get("use_graph", False) else ""
+USE_ESM   = "--build_esm" if config.get("use_esm", False) else ""
+USE_WARMUP  = config.get("use_warmup", False)
+USE_MIMICRY = config.get("use_mimicry", False)
+
+# Optional model-parameter override file (full control of ModelConfig/LossWeights
+# via autoguard/config.py). Empty string = use config.py defaults.
+_MODEL_CFG = config.get("model_config", "")
+MODEL_CONFIG = f"--model_config {_MODEL_CFG}" if _MODEL_CFG else ""
+
+
+# ============================================================================ #
+rule all:
+    input:
+        f"{RESULTS}/autoguard/metrics.json",
+        f"{AG}/sae/sae_stats.json",
+        f"{RESULTS}/autoguard/plots/metrics_comparison.png",
+
+
+# ============================================================================ #
+# Stage 0: Prepare datasets into autoguard/data/.
+rule prepare_data:
+    output:
+        train = f"{DATA_DIR}/processed/amp_train.csv",
+    log:
+        f"{LOGS}/prepare_data.log",
+    shell:
+        "{PY} -m autoguard.scripts.prepare_data --output_dir {DATA_DIR} > {log} 2>&1"
+
+
+# ============================================================================ #
+# Stage 1: Poincaré phylogenetic embedding pre-training (static tree only).
+rule poincare:
+    input:
+        train = f"{DATA_DIR}/processed/amp_train.csv",
+    output:
+        npz = f"{AG}/poincare_trained.npz",
+    params:
+        epochs = config["poincare_epochs"],
+    log:
+        f"{LOGS}/poincare.log",
+    shell:
+        "{PY} -m autoguard.scripts.train --stage poincare --data_dir {DATA_DIR} --save_dir {AG} --epochs {params.epochs} --tree_filter \"{TREEFILT}\" --seed {SEED} --device {DEVICE} {MODEL_CONFIG} > {log} 2>&1"
+
+
+# ============================================================================ #
+# Stage 2: Contrastive mimicry pre-training (optional; use_mimicry: true).
+#          Produces mimicry_pretrained.pt, which the full stage auto-loads.
+#          NOTE: requires the "fair-esm" package (ESM-2 features). This rule
+#          errors out if fair-esm is not installed.
+rule mimicry:
+    input:
+        train = f"{DATA_DIR}/processed/amp_train.csv",
+    output:
+        ckpt = f"{AG}/mimicry_pretrained.pt",
+    params:
+        epochs = config["mimicry_epochs"],
+    log:
+        f"{LOGS}/mimicry.log",
+    shell:
+        "{PY} -m autoguard.scripts.train --stage mimicry --data_dir {DATA_DIR} --save_dir {AG} --epochs {params.epochs} --batch_size {config[autoguard_batch_size]} --seed {SEED} --device {DEVICE} {USE_ESM} {MODEL_CONFIG} > {log} 2>&1"
+
+
+# ============================================================================ #
+# Stage 3: Encoder warm-up — reconstruction + VQ only (optional; use_warmup).
+#          Produces warmup/best_model.pt, which the full stage auto-loads.
+rule warmup:
+    input:
+        train    = f"{DATA_DIR}/processed/amp_train.csv",
+        poincare = f"{AG}/poincare_trained.npz",
+    output:
+        ckpt = f"{AG}/warmup/best_model.pt",
+    params:
+        epochs     = config["warmup_epochs"],
+        batch_size = config["autoguard_batch_size"],
+        lr         = config["autoguard_lr"],
+    log:
+        f"{LOGS}/warmup.log",
+    shell:
+        "{PY} -m autoguard.scripts.train --stage warmup --data_dir {DATA_DIR} --save_dir {AG} --epochs {params.epochs} --batch_size {params.batch_size} --lr {params.lr} --seed {SEED} --device {DEVICE} --max_train {MAXTRAIN} {USE_GRAPH} {MODEL_CONFIG} > {log} 2>&1"
+
+
+# ============================================================================ #
+# Stage 4: Full multi-task training (all losses). Auto-loads the warm-up and
+#          mimicry checkpoints from {AG} when the corresponding toggles are on.
+def _full_inputs(wildcards):
+    inputs = {
+        "train":    f"{DATA_DIR}/processed/amp_train.csv",
+        "poincare": f"{AG}/poincare_trained.npz",
+    }
+    if USE_WARMUP:
+        inputs["warmup"] = f"{AG}/warmup/best_model.pt"
+    if USE_MIMICRY:
+        inputs["mimicry"] = f"{AG}/mimicry_pretrained.pt"
+    return inputs
+
+
+rule full:
+    input:
+        unpack(_full_inputs),
+    output:
+        ckpt = f"{AG}/best_model.pt",
+    params:
+        epochs     = config["autoguard_epochs"],
+        batch_size = config["autoguard_batch_size"],
+        lr         = config["autoguard_lr"],
+    log:
+        f"{LOGS}/train_autoguard.log",
+    shell:
+        "{PY} -m autoguard.scripts.train --stage full --data_dir {DATA_DIR} --save_dir {AG} --epochs {params.epochs} --batch_size {params.batch_size} --lr {params.lr} --tree_filter \"{TREEFILT}\" --seed {SEED} --device {DEVICE} --max_train {MAXTRAIN} {USE_GRAPH} {USE_ESM} {MODEL_CONFIG} > {log} 2>&1"
+
+
+# ============================================================================ #
+# Stage 5: Sparse Autoencoder on frozen AutoGuard activations (interpretability).
+rule sae:
+    input:
+        ckpt = f"{AG}/best_model.pt",
+    output:
+        stats = f"{AG}/sae/sae_stats.json",
+    params:
+        epochs = config["sae_epochs"],
+    log:
+        f"{LOGS}/train_sae.log",
+    shell:
+        "{PY} -m autoguard.scripts.train --stage sae --data_dir {DATA_DIR} --save_dir {AG} --epochs {params.epochs} --seed {SEED} --device {DEVICE} --max_train {MAXTRAIN} {USE_GRAPH} {MODEL_CONFIG} > {log} 2>&1"
+
+
+# ============================================================================ #
+# Stage 6: Generate + evaluate AutoGuard (AMP-challenge reporting metrics).
+rule eval:
+    input:
+        ckpt = f"{AG}/best_model.pt",
+    output:
+        metrics = f"{RESULTS}/autoguard/metrics.json",
+        seqs    = f"{RESULTS}/autoguard/generated.csv",
+    params:
+        num  = config["num_generate"],
+        temp = config["temperature"],
+    log:
+        f"{LOGS}/eval_autoguard.log",
+    shell:
+        "{PY} -m autoguard.scripts.evaluate_model --model autoguard --checkpoint {input.ckpt} --data_dir {DATA_DIR} --out_dir {RESULTS}/autoguard --num {params.num} --temperature {params.temp} --seed {SEED} --device {DEVICE} {USE_GRAPH} > {log} 2>&1"
+
+
+# ============================================================================ #
+# Stage 7: AutoGuard-only analysis plots (AMP-score / length / physicochemical) from
+#          the generated set + SAE interpretability stats. Reuses the comparison
+#          plotter in single-model mode so the figures match the combined pipeline.
+rule plots:
+    input:
+        metrics = f"{RESULTS}/autoguard/metrics.json",
+        seqs    = f"{RESULTS}/autoguard/generated.csv",
+        sae     = f"{AG}/sae/sae_stats.json",
+    output:
+        overview = f"{RESULTS}/autoguard/plots/metrics_comparison.png",
+        report   = f"{RESULTS}/autoguard/plots/comparison_report.md",
+    log:
+        f"{LOGS}/plots_autoguard.log",
+    shell:
+        "{PY} -m autoguard.scripts.compare_report --metrics {input.metrics} --generated {input.seqs} --sae_stats {input.sae} --out_dir {RESULTS}/autoguard/plots > {log} 2>&1"

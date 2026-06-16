@@ -1,0 +1,23 @@
+2026-06-16 11:29:42,933 - __main__ - INFO -   Global seed set to 42
+2026-06-16 11:29:42,933 - __main__ - INFO - AutoGuard Training | Stage: sae | Device: cuda
+2026-06-16 11:29:42,933 - __main__ - INFO - ============================================================
+2026-06-16 11:29:42,933 - __main__ - INFO - STAGE 5: Sparse Autoencoder Training (post-hoc XAI)
+2026-06-16 11:29:42,933 - __main__ - INFO - ============================================================
+2026-06-16 11:29:43,167 - __main__ - INFO -   Loaded model from autoguard/checkpoints/exp/autoguard/best_model.pt
+2026-06-16 11:29:43,210 - __main__ - INFO -   Collecting fusion activations from 5000 sequences...
+2026-06-16 11:29:44,396 - __main__ - INFO -   Collected 5000 activation vectors, dim=48
+2026-06-16 11:29:44,568 - __main__ - INFO -   SAE epoch 1/100: loss=0.0143, dead_features=0/96
+2026-06-16 11:29:44,921 - __main__ - INFO -   SAE epoch 10/100: loss=0.0002, dead_features=0/96
+2026-06-16 11:29:45,120 - __main__ - INFO -   SAE epoch 20/100: loss=0.0001, dead_features=0/96
+2026-06-16 11:29:45,317 - __main__ - INFO -   SAE epoch 30/100: loss=0.0001, dead_features=0/96
+2026-06-16 11:29:45,515 - __main__ - INFO -   SAE epoch 40/100: loss=0.0000, dead_features=0/96
+2026-06-16 11:29:45,713 - __main__ - INFO -   SAE epoch 50/100: loss=0.0000, dead_features=0/96
+2026-06-16 11:29:45,912 - __main__ - INFO -   SAE epoch 60/100: loss=0.0000, dead_features=0/96
+2026-06-16 11:29:46,179 - __main__ - INFO -   SAE epoch 70/100: loss=0.0000, dead_features=0/96
+2026-06-16 11:29:46,377 - __main__ - INFO -   SAE epoch 80/100: loss=0.0000, dead_features=0/96
+2026-06-16 11:29:46,578 - __main__ - INFO -   SAE epoch 90/100: loss=0.0000, dead_features=0/96
+2026-06-16 11:29:46,779 - __main__ - INFO -   SAE epoch 100/100: loss=0.0000, dead_features=0/96
+2026-06-16 11:29:46,780 - __main__ - INFO -   SAE training complete. Best loss: 0.0000
+2026-06-16 11:29:46,780 - __main__ - INFO -   Saved: autoguard/checkpoints/exp/autoguard/sae/best_sae.pt
+2026-06-16 11:29:46,780 - __main__ - INFO -   Saved: autoguard/checkpoints/exp/autoguard/sae/sae_stats.json
+2026-06-16 11:29:46,781 - __main__ - INFO - Done.
