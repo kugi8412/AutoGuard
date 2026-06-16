@@ -1,0 +1,17 @@
+{
+  "amp": {
+    "train": 51756,
+    "val": 6347,
+    "test": 6517
+  },
+  "safety": {
+    "train": 3478,
+    "val": 449,
+    "test": 450
+  },
+  "mimicry": {
+    "positives": 32,
+    "negatives": 5000
+  },
+  "trees": 11
+}
