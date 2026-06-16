@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "autoguard"
+version = "0.1.3"
+description = "AutoGuard: Evolutionary-Conditioned Graph-Based AMP Generation with Molecular Mimicry Detection"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "Jakub Giezgała", email = "j.giezgala@student.uw.edu.pl"},
+]
+
+dependencies = [
+    "torch>=2.0.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "scikit-learn>=1.3.0",
+    "biopython>=1.81",
+    "tqdm>=4.65.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "pandas>=2.0.0",
+    "levenshtein>=0.21.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+]
+graph = [
+    "torch-geometric>=2.4.0",
+]
+esm = [
+    "fair-esm>=2.0.0",
+]
+full = [
+    "torch-geometric>=2.4.0",
+    "fair-esm>=2.0.0",
+]
+
+[project.scripts]
+autoguard-train = "autoguard.scripts.train:main"
+autoguard-generate = "autoguard.scripts.generate:main"
+autoguard-evaluate = "autoguard.scripts.evaluate:main"
+autoguard-download = "autoguard.scripts.download_data:main"
+autoguard-prepare = "autoguard.scripts.prepare_data:main"
+autoguard-smoke = "autoguard.scripts.smoke_test:main"
+autoguard-compare = "autoguard.scripts.compare_models:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["autoguard*"]
+
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+line-length = 100
