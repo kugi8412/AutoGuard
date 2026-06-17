@@ -17,6 +17,12 @@ AutoGuard is an end-to-end deep learning framework for generating antimicrobial 
 
 ## Quick Start (End-to-End)
 
+### 0. Get data
+
+```bash
+bash get_data.sh
+```
+
 ### 1. Install
 
 ```bash
@@ -35,7 +41,7 @@ pip install -e autoguard/
 pip install -e "autoguard/[full]"
 ```
 
-### 2. Smoke Test (validates entire pipeline, ~30s on CPU)
+### 2. Smoke Test
 
 ```bash
 python -m autoguard.scripts.smoke_test
@@ -55,7 +61,7 @@ This runs 14 checks covering:
 - Model comparison harness
 - Sparse Autoencoder
 
-### 3. Compare Models (AutoGuard vs HydrAMP vs GNN-VAE)
+### 3. Compare Models
 
 ```bash
 # Quick smoke comparison (~1 min, CPU)
@@ -77,7 +83,7 @@ Output: `comparison_report.json` with metrics table:
 
 ---
 
-## Reproducible Snakemake Workflow (self-contained)
+## Reproducible Snakemake Workflow
 
 ```
 autoguard/workflow/Snakefile                 # combined AutoGuard-vs-HydrAMP pipeline
@@ -234,7 +240,7 @@ per-residue saliency** maps for the AMP and safety heads. Set `GITHUB_REPO`,
 
 ---
 
-## Full Training Pipeline (manual / per-stage)
+## Full Training Pipeline
 
 
 ```bash
@@ -249,7 +255,7 @@ This creates:
 - `data/processed/mimicry_positives.fasta` / `mimicry_negatives.fasta`
 - `data/species_trees/` (bundled **static** `timetree.nwk` — SAAP auto-trees are not used)
 
-### Step 2: Download Additional Datasets (optional)
+### Step 2: Download Additional Datasets
 
 ```bash
 # Create directory structure + print download instructions
