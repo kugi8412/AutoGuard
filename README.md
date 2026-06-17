@@ -1,4 +1,5 @@
 # AutoGuard
+<img src="./Logo_AutoGuard.png" alt="Logo" width="250"/></td>
 
 **Evolutionary-Conditioned Graph-Based AMP Generation with Molecular Mimicry Detection**
 
@@ -152,7 +153,7 @@ alongside the generation-quality metrics.
 
 Snakemake controls the **training schedule** (epochs / batch size / lr / device /
 `max_train`) through `config.yaml`. The **architecture, loss weights and data
-thresholds** in [`autoguard/config.py`](./config.py) are controlled by a separate
+thresholds** in [`config.py`](./autoguard/config.py) are controlled by a separate
 override file passed with `--model_config`:
 
 ```
@@ -190,7 +191,7 @@ python -m autoguard.scripts.train --stage full --data_dir data/ \
 
 ## Hyperparameter Search (all stages)
 
-[`hyperparameter_search.py`](/autoguard/scripts/hyperparameter_search.py) runs a grid or
+[`hyperparameter_search.py`](./autoguard/scripts/hyperparameter_search.py) runs a grid or
 random search across **any** parameter — `model.*`, `loss_weights.*`, `data.*`,
 and per-stage `epochs` / `batch_size` / `lr` — for the staged training protocol.
 Each trial writes a per-trial config, runs the listed stages in order, evaluates
@@ -221,9 +222,9 @@ Outputs land in `autoguard/results/search/`: `search_results.csv`,
 `search_summary.json`, and `best_model_params.yaml`.
 
 ## Google Colab (download from GitHub + inference + SAE)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kugi8412//AutoGuard/blob/main/autoguard_colab.ipynb)
 
-[`notebooks/autoguard_colab.ipynb`](./autoguard_colab.ipynb) is a
-self-contained Colab notebook that clones the repo from a **user-set GitHub
+Self-contained Colab notebook that clones the repo from a **user-set GitHub
 URL**, downloads a trained checkpoint, generates peptides, renders all figures
 (length / amino-acid composition / AMP-score / safety distributions), visualises
 the **VQ-VAE codebook** (usage histogram, code-vector heatmap, PCA), runs the
@@ -433,7 +434,7 @@ The resulting species vector $z_{\text{phylo}}$ becomes a conditioning token.
 The continuous latent (queries $Q$) attends over a small stack of conditioning
 tokens — phylogenetic, mimicry (ESM-2), safety, MIC, ESM context (keys/values
 $K,V$) — using multi-head **scaled dot-product attention** (Vaswani et al.,
-2017), implemented in [`models/fusion.py`](models/fusion.py):
+2017), implemented in [`models/fusion.py`](./autoguard/models/fusion.py):
 
 Cross-attention (as opposed to self-attention) lets generation be *steered* by
 external biology: each residue position decides how much to listen to each
